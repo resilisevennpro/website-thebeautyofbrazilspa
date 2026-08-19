@@ -1,17 +1,7 @@
-import { useState } from "react";
-import { MessageCircle, Send } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
+import { MessageCircle } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const BookingCTA = () => {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = `Olá Dra. Gabrielle! Meu nome é ${form.name}. Telefone: ${form.phone}. ${form.message}`;
-    window.open(`https://wa.me/5561999845810?text=${encodeURIComponent(text)}`, "_blank");
-    toast({ title: "Redirecionando para WhatsApp", description: "Em instantes você falará com nossa equipe." });
-  };
-
   return (
     <section id="contato" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -31,53 +21,22 @@ export const BookingCTA = () => {
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6 reveal">
+        <div className="mt-14 max-w-md mx-auto reveal">
           {/* WhatsApp */}
           <a
-            href="https://wa.me/5561999845810"
+            href={WHATSAPP_LINK}
             target="_blank" rel="noreferrer"
-            className="glass-card group p-8 flex flex-col justify-between hover:-translate-y-1 hover:shadow-gold transition-all"
+            className="glass-card group p-8 flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-gold transition-all"
           >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366]">
-                <MessageCircle size={26} />
-              </div>
-              <h3 className="mt-5 text-2xl font-display">Falar agora</h3>
-              <p className="mt-2 text-muted-foreground text-sm">Resposta rápida via WhatsApp com nossa equipe.</p>
+            <div className="w-14 h-14 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366]">
+              <MessageCircle size={26} />
             </div>
-            <span className="mt-6 inline-flex items-center gap-2 self-start bg-[#25D366] text-white font-medium px-5 py-3 rounded-full group-hover:gap-3 transition-all">
+            <h3 className="mt-5 text-2xl font-display">Falar agora</h3>
+            <p className="mt-2 text-muted-foreground text-sm">Resposta rápida via WhatsApp com nossa equipe.</p>
+            <span className="mt-6 inline-flex items-center gap-2 bg-[#25D366] text-white font-medium px-5 py-3 rounded-full group-hover:gap-3 transition-all">
               <MessageCircle size={18} /> Abrir WhatsApp
             </span>
           </a>
-
-          {/* Form */}
-          <form onSubmit={submit} className="glass-card p-8 space-y-4">
-            <h3 className="text-2xl font-display">Envie uma mensagem</h3>
-            <input
-              required
-              placeholder="Seu nome"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full bg-secondary border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition"
-            />
-            <input
-              required
-              placeholder="Telefone / WhatsApp"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full bg-secondary border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition"
-            />
-            <textarea
-              rows={3}
-              placeholder="Conte-nos sobre seu sorriso..."
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full bg-secondary border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition resize-none"
-            />
-            <button type="submit" className="shimmer w-full inline-flex items-center justify-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-5 py-3.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all">
-              <Send size={16} /> Enviar mensagem
-            </button>
-          </form>
         </div>
       </div>
     </section>

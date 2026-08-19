@@ -1,4 +1,5 @@
 import { Sun, Sparkles } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 import c1 from "@/assets/clareamento-1.jpg";
 import c2 from "@/assets/clareamento-2.jpeg";
 import c3 from "@/assets/clareamento-3.jpeg";
@@ -48,7 +49,8 @@ export const Clareamento = () => {
             </div>
 
             <a
-              href="#contato"
+              href={WHATSAPP_LINK}
+              target="_blank" rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-6 py-3 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
             >
               <Sun size={16} /> Quero clarear meu sorriso

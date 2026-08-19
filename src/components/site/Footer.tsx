@@ -1,4 +1,5 @@
 import { Instagram, MessageCircle } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const Footer = () => {
   return (
@@ -25,7 +26,7 @@ export const Footer = () => {
             <a href="https://instagram.com/dra.gabrielleleao" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center hover:bg-primary/10 transition">
               <Instagram size={16} className="text-primary" />
             </a>
-            <a href="https://wa.me/5561999845810" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center hover:bg-primary/10 transition">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center hover:bg-primary/10 transition">
               <MessageCircle size={16} className="text-primary" />
             </a>
           </div>

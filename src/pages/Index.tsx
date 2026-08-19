@@ -12,7 +12,6 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { InstagramFeed } from "@/components/site/InstagramFeed";
 import { BookingCTA } from "@/components/site/BookingCTA";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -39,7 +38,6 @@ const Index = () => {
       <InstagramFeed />
       <BookingCTA />
       <Footer />
-      <WhatsAppFab />
     </main>
   );
 };

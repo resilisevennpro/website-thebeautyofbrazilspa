@@ -1,4 +1,5 @@
 import { Gem } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 import r1 from "@/assets/recontorno-2.jpeg";
 import r2 from "@/assets/recontorno-1.jpeg";
 
@@ -81,7 +82,8 @@ export const RecontornoEstetico = () => {
             </ul>
 
             <a
-              href="#contato"
+              href={WHATSAPP_LINK}
+              target="_blank" rel="noreferrer"
               className="mt-9 inline-flex items-center gap-2 border border-primary/40 px-6 py-3 rounded-full hover:bg-primary/10 transition-all font-medium"
             >
               <Gem size={16} className="text-primary" />

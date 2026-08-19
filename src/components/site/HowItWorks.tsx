@@ -1,4 +1,5 @@
-import { Calendar, PencilRuler, Sparkles } from "lucide-react";
+import { Calendar, MessageCircle, PencilRuler, Sparkles } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 const steps = [
   { n: "01", icon: Calendar, title: "Consulta de avaliação", desc: "Diagnóstico inicial gratuito para entender seus objetivos e expectativas." },
@@ -33,6 +34,19 @@ export const HowItWorks = () => {
               <p className="mt-3 text-sm text-muted-foreground max-w-xs mx-auto">{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center reveal">
+          <p className="text-muted-foreground">
+            Comece pelo primeiro passo: sua avaliação é gratuita.
+          </p>
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank" rel="noreferrer"
+            className="mt-6 inline-flex items-center gap-2 bg-[#25D366] text-white font-medium px-6 py-3.5 rounded-full hover:gap-3 hover:-translate-y-0.5 transition-all"
+          >
+            <MessageCircle size={18} /> Agendar minha avaliação
+          </a>
         </div>
       </div>
     </section>

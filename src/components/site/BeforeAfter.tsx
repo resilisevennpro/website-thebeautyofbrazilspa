@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 import caseAntes from "@/assets/case-antes.jpg";
 import caseDepois from "@/assets/case-depois.jpg";
 import caseJunto from "@/assets/case-junto.jpg";
@@ -116,7 +117,8 @@ export const BeforeAfter = () => {
 
           {/* Editorial CTA card filling the third slot */}
           <a
-            href="#contato"
+            href={WHATSAPP_LINK}
+            target="_blank" rel="noreferrer"
             className="reveal group relative luxe-card p-8 lg:p-10 flex flex-col justify-between overflow-hidden hover:-translate-y-1 transition-all duration-500"
           >
             <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-gradient-radial-gold blur-2xl opacity-80 group-hover:opacity-100 transition-opacity" />

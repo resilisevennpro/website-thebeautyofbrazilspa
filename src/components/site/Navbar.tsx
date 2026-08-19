@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/whatsapp";
 
 const links = [
   { href: "#servicos", label: "Serviços" },
@@ -43,7 +44,8 @@ export const Navbar = () => {
           ))}
         </ul>
         <a
-          href="#contato"
+          href={WHATSAPP_LINK}
+          target="_blank" rel="noreferrer"
           className="hidden md:inline-flex shimmer items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
         >
           Agendar Agora
@@ -63,7 +65,7 @@ export const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a href="#contato" onClick={() => setOpen(false)} className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center">
             Agendar Agora
           </a>
         </div>
