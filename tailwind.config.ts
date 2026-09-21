@@ -65,9 +65,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        body: ['Inter', 'sans-serif'],
-        accent: ['"Cormorant Garamond"', 'serif'],
+        display: ['Baskervville', 'serif'],
+        body: ['Montserrat', 'sans-serif'],
+        accent: ['Baskervville', 'serif'],
       },
       backgroundImage: {
         'gradient-gold': 'var(--gradient-gold)',

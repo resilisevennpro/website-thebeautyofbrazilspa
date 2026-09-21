@@ -1,7 +1,30 @@
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { useLanguage } from "@/lib/language";
+
+const copy = {
+  pt: {
+    eyebrow: "Vamos conversar",
+    title1: "Pronta para transformar sua",
+    titleGold: "pele?",
+    body: "Clique abaixo para agendar sua sessão online, ou ligue/envie mensagem para (954) 405-5414 para marcar seu horário personalizado.",
+    callTitle: "Ligue ou Envie Mensagem",
+    cta: "Agendar Meu Horário",
+  },
+  en: {
+    eyebrow: "Let's talk",
+    title1: "Ready to transform your",
+    titleGold: "skin?",
+    body: "Click below to book your appointment online, or call/text us at (954) 405-5414 to schedule your custom session.",
+    callTitle: "Call or Text",
+    cta: "Book Your Appointment",
+  },
+};
 
 export const BookingCTA = () => {
+  const { lang } = useLanguage();
+  const t = copy[lang];
+
   return (
     <section id="contato" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -12,17 +35,14 @@ export const BookingCTA = () => {
 
       <div className="container max-w-5xl">
         <div className="text-center reveal">
-          <span className="font-accent text-primary text-xl">Vamos conversar</span>
+          <span className="font-accent text-primary text-xl">{t.eyebrow}</span>
           <h2 className="mt-2 text-4xl md:text-6xl font-display text-balance">
-            Pronta para transformar seu <span className="gold-text">sorriso?</span>
+            {t.title1} <span className="gold-text">{t.titleGold}</span>
           </h2>
-          <p className="mt-5 text-muted-foreground text-lg max-w-xl mx-auto">
-            Agende sua consulta de avaliação e descubra a melhor versão do seu sorriso.
-          </p>
+          <p className="mt-5 text-muted-foreground text-lg max-w-xl mx-auto">{t.body}</p>
         </div>
 
         <div className="mt-14 max-w-md mx-auto reveal">
-          {/* WhatsApp */}
           <a
             href={WHATSAPP_LINK}
             target="_blank" rel="noreferrer"
@@ -31,10 +51,10 @@ export const BookingCTA = () => {
             <div className="w-14 h-14 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366]">
               <MessageCircle size={26} />
             </div>
-            <h3 className="mt-5 text-2xl font-display">Falar agora</h3>
-            <p className="mt-2 text-muted-foreground text-sm">Resposta rápida via WhatsApp com nossa equipe.</p>
+            <h3 className="mt-5 text-2xl font-display">{t.callTitle}</h3>
+            <p className="mt-2 text-muted-foreground text-sm">(954) 405-5414</p>
             <span className="mt-6 inline-flex items-center gap-2 bg-[#25D366] text-white font-medium px-5 py-3 rounded-full group-hover:gap-3 transition-all">
-              <MessageCircle size={18} /> Abrir WhatsApp
+              <MessageCircle size={18} /> {t.cta}
             </span>
           </a>
         </div>

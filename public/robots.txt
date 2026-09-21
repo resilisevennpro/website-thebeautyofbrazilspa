@@ -32,4 +32,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://dragabrielleleao.com/sitemap.xml
+Sitemap: https://thebeautyofbrazilspa.com/sitemap.xml

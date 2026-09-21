@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,52 +6,52 @@
 
 @layer base {
   :root {
-    /* #F8F4EF */
-    --background: 33 38% 95%;
-    /* #2C1810 */
-    --foreground: 18 47% 12%;
+    /* WordPress Elementor kit colors (thebeautyofbrazilspa.com, kit id 421) */
+    /* clean off-white, slight green undertone */
+    --background: 140 15% 97%;
+    /* #0D1F18: kit "secondary" dark forest green */
+    --foreground: 157 41% 9%;
 
-    /* #FFFFFF */
     --card: 0 0% 100%;
-    --card-foreground: 18 47% 12%;
+    --card-foreground: 157 41% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 18 47% 12%;
+    --popover-foreground: 157 41% 9%;
 
-    /* #B8960C */
-    --primary: 48 88% 38%;
-    --primary-foreground: 0 0% 100%;
-    /* #D4AF37 */
-    --primary-glow: 46 65% 52%;
+    /* #C8A15A: kit custom gold */
+    --primary: 39 50% 57%;
+    /* #0D1F18: dark green text on gold for brand-accurate contrast */
+    --primary-foreground: 157 41% 9%;
+    --primary-glow: 39 55% 70%;
 
-    --secondary: 33 38% 92%;
-    --secondary-foreground: 18 47% 12%;
+    /* #0D1F18: kit secondary dark green, used as tint role */
+    --secondary: 157 30% 14%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 33 30% 90%;
-    /* #6B5744 */
-    --muted-foreground: 26 22% 34%;
+    --muted: 140 15% 93%;
+    /* #999999: kit "text" color, green-tinted */
+    --muted-foreground: 150 8% 40%;
 
-    --accent: 48 88% 38%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 39 50% 57%;
+    --accent-foreground: 157 41% 9%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    /* #E2D5C0 */
-    --border: 36 35% 82%;
+    --border: 150 20% 85%;
     --input: 0 0% 100%;
-    --ring: 48 88% 38%;
+    --ring: 39 50% 57%;
 
     --radius: 0.75rem;
 
-    --gradient-gold: linear-gradient(135deg, hsl(48 88% 38%), hsl(46 65% 52%));
-    --gradient-gold-soft: linear-gradient(135deg, hsl(48 88% 38% / 0.12), hsl(46 65% 52% / 0.04));
-    --gradient-radial-gold: radial-gradient(circle at center, hsl(46 65% 52% / 0.22), transparent 70%);
-    --gradient-cream: linear-gradient(180deg, hsl(33 38% 97%), hsl(33 38% 92%));
-    --shadow-gold: 0 10px 40px -10px hsl(48 88% 38% / 0.35);
-    --shadow-gold-strong: 0 25px 70px -15px hsl(48 88% 38% / 0.45);
-    --shadow-card: 0 12px 40px -12px hsl(26 30% 25% / 0.18);
-    --shadow-luxe: 0 30px 80px -20px hsl(26 30% 25% / 0.22);
+    --gradient-gold: linear-gradient(135deg, hsl(39 50% 57%), hsl(39 55% 70%));
+    --gradient-gold-soft: linear-gradient(135deg, hsl(39 50% 57% / 0.12), hsl(39 55% 70% / 0.04));
+    --gradient-radial-gold: radial-gradient(circle at center, hsl(39 55% 70% / 0.22), transparent 70%);
+    --gradient-cream: linear-gradient(180deg, hsl(140 15% 98%), hsl(140 15% 93%));
+    --shadow-gold: 0 10px 40px -10px hsl(39 50% 57% / 0.35);
+    --shadow-gold-strong: 0 25px 70px -15px hsl(39 50% 57% / 0.45);
+    --shadow-card: 0 12px 40px -12px hsl(157 30% 14% / 0.18);
+    --shadow-luxe: 0 30px 80px -20px hsl(157 30% 14% / 0.22);
     --transition-luxe: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
@@ -66,8 +66,8 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-image:
-      radial-gradient(circle at 15% 10%, hsl(46 65% 52% / 0.10), transparent 45%),
-      radial-gradient(circle at 85% 80%, hsl(48 88% 38% / 0.06), transparent 45%);
+      radial-gradient(circle at 15% 10%, hsl(39 55% 70% / 0.10), transparent 45%),
+      radial-gradient(circle at 85% 80%, hsl(157 30% 14% / 0.05), transparent 45%);
   }
   h1, h2, h3, h4 {
     @apply font-display;
@@ -85,7 +85,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, hsl(46 65% 52% / 0.55), transparent 50%, hsl(48 88% 38% / 0.18));
+    background: linear-gradient(135deg, hsl(39 55% 70% / 0.55), transparent 50%, hsl(39 50% 57% / 0.18));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -139,9 +139,9 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Playfair Display', serif; }
-  .font-body { font-family: 'Inter', sans-serif; }
-  .font-accent { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+  .font-display { font-family: 'Baskervville', serif; }
+  .font-body { font-family: 'Montserrat', sans-serif; }
+  .font-accent { font-family: 'Baskervville', serif; font-style: italic; }
   .text-balance { text-wrap: balance; }
 }
 
@@ -154,8 +154,8 @@
   50% { transform: translateY(-12px); }
 }
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 hsl(48 88% 38% / 0.55); }
-  50% { box-shadow: 0 0 0 18px hsl(48 88% 38% / 0); }
+  0%, 100% { box-shadow: 0 0 0 0 hsl(39 50% 57% / 0.55); }
+  50% { box-shadow: 0 0 0 18px hsl(39 50% 57% / 0); }
 }
 @keyframes bokeh {
   0%, 100% { transform: translate(0,0) scale(1); opacity: 0.4; }
