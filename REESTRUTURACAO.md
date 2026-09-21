@@ -50,20 +50,26 @@ O site final terá toggle de idioma. **Atenção à inversão entre fases:**
 | `WhatsAppFab.tsx` | revisar | conferir número de WhatsApp |
 | `Footer.tsx` | revisar | dados de contato, endereço, redes |
 
-### `src/assets/`
-Todas as imagens (`dra-*`, `case-*`, `clareamento-*`, `recontorno-*`) são da
-Dra. Gabriele — **nenhuma reaproveitável**. Serão substituídas pelas imagens
-extraídas da Media Library do WordPress da The Beauty of Brazil Spa.
+### `src/assets/` ✅ limpo em 2026-09-21
+As 28 imagens da Dra. Gabriele (`dra-*`, `case-*`, `clareamento-*`,
+`recontorno-*`, ~19MB) foram removidas — nenhuma tinha referência no código
+atual. Assets reais da The Beauty of Brazil Spa vivem em `src/assets/tbobs/`.
 
-### `public/`
-- `favicon.png`, `robots.txt`, `sitemap.xml` — trocar pelo domínio/branding
-  da The Beauty of Brazil Spa
-- `placeholder.svg` — reaproveitável
+### `public/` ✅ limpo em 2026-09-21
+- `favicon.png` (era o monograma "GL" da Dra. Gabriele) **removido**.
+  Substituído temporariamente por `placeholder.svg` (ícone) e
+  `og-image.jpg` (foto real de tratamento, usada em og:image/twitter:image/
+  apple-touch-icon) até termos o **logo oficial da marca**
+  ([PENDENTE — cliente vai enviar](#pendências--decisões-em-aberto))
+- `robots.txt`, `sitemap.xml` — já apontam para thebeautyofbrazilspa.com
+- `placeholder.svg` — reaproveitado (genérico, nunca foi da Dra. Gabriele)
 
-### Metadados
-- `index.html` — title, meta tags, SEO/AEO/GEO, dados estruturados e domínio
-  do Facebook ainda apontam para a Dra. Gabriele
-- `package.json` → `name: "vite_react_shadcn_ts"` — genérico, sem problema
+### Metadados ✅ atualizados em 2026-09-21
+`index.html` — title, meta tags, JSON-LD (agora `BeautySalon` com endereço
+real de Pembroke Pines) já reescritos. `robots.txt`/`sitemap.xml` com
+domínio correto. Ver pendências de SEO/AEO/GEO mais completas abaixo.
+- `package.json` → `name: "vite_react_shadcn_ts"` — genérico, sem problema,
+  não precisa trocar
 
 ## Fases do trabalho
 
@@ -102,6 +108,38 @@ final **não pode** ser visualmente idêntico ao WordPress atual.
 6. **Renomear branding interno** (WhatsApp, Instagram, nome do negócio) em
    todos os componentes que fazem referência direta
 
+## SEO / AEO / GEO — a mexer em breve
+
+O site da Dra. Gabriele tinha um trabalho de SEO/AEO/GEO relativamente
+completo (sitemap, robots.txt para crawlers de IA, dados estruturados
+JSON-LD, FAQPage schema). Neste projeto, por enquanto, só o básico foi
+portado (meta tags, `BeautySalon` schema simples). Falta:
+
+- [ ] **robots.txt** — adicionar diretivas explícitas para crawlers de IA/
+      AEO (GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended,
+      Applebot-Extended), como estava no site da Dra. Gabriele
+- [ ] **sitemap.xml** — hoje só tem a home; expandir quando existirem mais
+      páginas/rotas (ex: página de serviços, sobre, contato)
+- [ ] **JSON-LD** — enriquecer o schema `BeautySalon`: horário já incluído,
+      faltam `aggregateRating`/`review` (só com dados reais confirmados,
+      não inventar), `sameAs` com mais perfis se houver (Facebook, Google
+      Business), e possivelmente `Service` schema por tratamento
+- [ ] **FAQPage schema** — só faz sentido depois que a página de FAQ real
+      for escrita (hoje é Lorem Ipsum no WordPress, ver
+      [IDENTIDADE-VISUAL.md](IDENTIDADE-VISUAL.md)); não copiar o
+      schema antigo da Dra. Gabriele
+- [ ] **GEO (Generative Engine Optimization)** — conteúdo estruturado e
+      citável para IAs generativas (respostas diretas, listas claras de
+      serviços/preços, bio factual) — parcialmente resolvido pelo texto
+      real já migrado, mas vale revisão dedicada
+- [ ] **og-image.jpg / favicon** — hoje são placeholders temporários (foto
+      de tratamento genérica + ícone padrão); trocar por logo oficial e uma
+      imagem de compartilhamento pensada especificamente para redes sociais
+      assim que a marca enviar os assets
+- [ ] **Verificação de domínio** (Facebook, Google Search Console etc.) —
+      a da Dra. Gabriele foi removida do `index.html`; gerar uma nova para
+      thebeautyofbrazilspa.com quando for configurar
+
 ## Pendências / decisões em aberto
 - [x] Instagram: @thebeautyofbrazilspa
 - [x] Telefone/contato: (954) 405-5414 — [PENDENTE DE VALIDAÇÃO] se é o
@@ -111,8 +149,11 @@ final **não pode** ser visualmente idêntico ao WordPress atual.
       Glow Facial, Anti-Aging Facial (ver [IDENTIDADE-VISUAL.md](IDENTIDADE-VISUAL.md))
 - [ ] Domínio final (a hospedagem WordPress mostra domínio externo:
       thebeautyofbrazilspa.com)
-- [ ] Cores exatas (hex) e fontes do tema WordPress
+- [x] Cores exatas (hex) e fontes do tema WordPress → ver [IDENTIDADE-VISUAL.md](IDENTIDADE-VISUAL.md)
 - [x] Lista completa de serviços/preços → ver [SERVICOS-PRECOS.md](SERVICOS-PRECOS.md)
+- [ ] **Logo oficial da marca** — cliente vai enviar; até lá, favicon e
+      og-image estão com placeholders (ver seção `public/` acima)
+- [ ] SEO/AEO/GEO completo — ver seção dedicada acima
 
 > Convenção: itens marcados `[PENDENTE DE VALIDAÇÃO]` nos componentes devem
 > ser confirmados com a cliente antes de publicar.
