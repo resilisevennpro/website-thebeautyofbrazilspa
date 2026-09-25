@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Leaf, Menu, X } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 
 const links = {
   pt: [
-    { href: "#servicos", label: "Serviços" },
-    { href: "#resultados", label: "Tratamentos" },
-    { href: "#sobre", label: "Sobre" },
-    { href: "#contato", label: "Contato" },
+    { href: "/#servicos", label: "Destaques" },
+    { href: "/services", label: "Todos os Serviços" },
+    { href: "/#sobre", label: "Sobre" },
+    { href: "/#contato", label: "Contato" },
   ],
   en: [
-    { href: "#servicos", label: "Services" },
-    { href: "#resultados", label: "Treatments" },
-    { href: "#sobre", label: "About" },
-    { href: "#contato", label: "Contact" },
+    { href: "/#servicos", label: "Highlights" },
+    { href: "/services", label: "All Services" },
+    { href: "/#sobre", label: "About" },
+    { href: "/#contato", label: "Contact" },
   ],
 };
 
@@ -24,6 +25,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { lang, toggleLang } = useLanguage();
+  const whatsappLink = buildWhatsAppLink(lang);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -40,19 +42,19 @@ export const Navbar = () => {
       }`}
     >
       <nav className="container flex items-center justify-between">
-        <a href="#" className={`flex items-center gap-2 font-display text-xl md:text-2xl tracking-wide transition-colors ${scrolled ? "text-secondary-foreground" : "text-foreground"}`}>
+        <Link to="/" className={`flex items-center gap-2 font-display text-xl md:text-2xl tracking-wide transition-colors ${scrolled ? "text-secondary-foreground" : "text-foreground"}`}>
           <Leaf className="text-primary" size={20} />
           The Beauty of <span className="gold-text font-semibold">Brazil</span>
-        </a>
+        </Link>
         <ul className={`hidden md:flex items-center gap-8 text-sm transition-colors ${scrolled ? "text-secondary-foreground/80" : "text-muted-foreground"}`}>
           {links[lang].map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
+              <Link
+                to={l.href}
                 className="hover:text-primary transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -69,7 +71,7 @@ export const Navbar = () => {
             <span className={lang === "en" ? "text-primary" : ""}>EN</span>
           </button>
           <a
-            href={WHATSAPP_LINK}
+            href={whatsappLink}
             target="_blank" rel="noreferrer"
             className="shimmer inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
           >
@@ -98,11 +100,11 @@ export const Navbar = () => {
       {open && (
         <div className="md:hidden mt-4 mx-4 glass-card p-6 flex flex-col gap-4">
           {links[lang].map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-foreground hover:text-primary">
+            <Link key={l.href} to={l.href} onClick={() => setOpen(false)} className="text-foreground hover:text-primary">
               {l.label}
-            </a>
+            </Link>
           ))}
-          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center">
+          <a href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center">
             {bookLabel[lang]}
           </a>
         </div>

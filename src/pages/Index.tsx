@@ -1,4 +1,6 @@
 import { useReveal } from "@/hooks/useReveal";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
@@ -11,8 +13,6 @@ import { About } from "@/components/site/About";
 import { InstagramFeed } from "@/components/site/InstagramFeed";
 import { BookingCTA } from "@/components/site/BookingCTA";
 import { Footer } from "@/components/site/Footer";
-import { LanguageProvider, useLanguage } from "@/lib/language";
-import { useEffect } from "react";
 
 const metaCopy = {
   pt: {
@@ -25,16 +25,10 @@ const metaCopy = {
   },
 };
 
-const PageContent = () => {
+const Index = () => {
   useReveal();
-  const { lang } = useLanguage();
-
-  useEffect(() => {
-    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
-    document.title = metaCopy[lang].title;
-    const meta = document.querySelector('meta[name="description"]') || document.head.appendChild(Object.assign(document.createElement("meta"), { name: "description" }));
-    (meta as HTMLMetaElement).content = metaCopy[lang].description;
-  }, [lang]);
+  usePageMeta(metaCopy);
+  useScrollToHash();
 
   return (
     <main className="relative">
@@ -53,11 +47,5 @@ const PageContent = () => {
     </main>
   );
 };
-
-const Index = () => (
-  <LanguageProvider>
-    <PageContent />
-  </LanguageProvider>
-);
 
 export default Index;

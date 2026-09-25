@@ -1,6 +1,5 @@
-import portrait from "@/assets/tbobs/about-portrait.jpg";
-import portrait2 from "@/assets/tbobs/gallery-3.jpg";
-import { Instagram } from "lucide-react";
+import portrait from "@/assets/tbobs/christiane-portrait.png";
+import portrait2 from "@/assets/tbobs/about-portrait.jpg";
 import { useLanguage } from "@/lib/language";
 
 const copy = {
@@ -11,7 +10,6 @@ const copy = {
     p1: "Por muitos anos, Christiane construiu sua carreira em gestão administrativa e financeira, desenvolvendo fortes habilidades de organização, liderança e atendimento ao cliente. Embora valorizasse muito essa experiência, ela sempre se sentiu atraída pela indústria da beleza e do bem-estar e sonhava em ajudar as pessoas a se sentirem confiantes em sua própria pele.",
     p2: "Essa paixão inspirou uma transição de carreira que mudou sua vida. Ela cursou Estética na Flórida, concluiu seu treinamento profissional e obteve sua Licença de Esteticista da Flórida. Hoje, ela combina sua formação em negócios com sua dedicação ao skincare e ao bem-estar corporal, especializando-se em cuidado excepcional, resultados visíveis e uma experiência relaxante que fortalece confiança e bem-estar.",
     quote: "Para mim, estética é mais do que uma profissão, é uma verdadeira paixão. Ajudar as pessoas a se sentirem e parecerem bem é a parte mais gratificante da minha jornada.",
-    cta: "Seguir no Instagram",
     licenseTitle: "Flórida",
     licenseSub: "Licença de Esteticista",
   },
@@ -22,7 +20,6 @@ const copy = {
     p1: "For many years, Christiane built her career in administrative and financial management, developing strong organizational, leadership, and client service skills. While she truly valued that experience, she always felt drawn to the beauty and wellness industry and dreamed of helping people feel confident in their own skin.",
     p2: "That passion inspired a life-changing career transition. She pursued her education in Esthetics in Florida, completed her professional training, and earned her Florida Esthetician License. Today, she combines her business background with her dedication to skincare and body wellness, specializing in exceptional care, visible results, and a relaxing experience that enhances both confidence and well-being.",
     quote: "For me, aesthetics is more than a profession; it is a true passion. Helping people look and feel their best is the most rewarding part of my journey.",
-    cta: "Follow on Instagram",
     licenseTitle: "Florida",
     licenseSub: "Esthetician License",
   },
@@ -39,7 +36,7 @@ export const About = () => {
           <div className="absolute -inset-4 bg-gradient-radial-gold blur-2xl" />
           <div className="relative grid grid-cols-5 gap-4">
             <div className="col-span-3 rounded-2xl overflow-hidden border border-border shadow-luxe">
-              <img src={portrait} alt="The Beauty of Brazil SPA treatment room" className="w-full h-full object-cover" />
+              <img src={portrait} alt="Christiane Roberts, founder of The Beauty of Brazil SPA" className="w-full h-full object-cover" />
             </div>
             <div className="col-span-2 flex flex-col gap-4 pt-12">
               <div className="rounded-2xl overflow-hidden border border-border shadow-luxe aspect-[3/4]">
@@ -64,14 +61,6 @@ export const About = () => {
           <div className="mt-8 luxe-card p-5">
             <p className="text-sm text-foreground/90 italic">"{t.quote}"</p>
           </div>
-
-          <a
-            href="https://instagram.com/thebeautyofbrazilspa"
-            target="_blank" rel="noreferrer"
-            className="mt-8 inline-flex items-center gap-2 border border-primary/40 px-6 py-3 rounded-full hover:bg-primary/10 transition-all"
-          >
-            <Instagram size={18} className="text-primary" /> {t.cta}
-          </a>
         </div>
       </div>
     </section>

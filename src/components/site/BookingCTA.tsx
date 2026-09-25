@@ -1,5 +1,5 @@
 import { MessageCircle } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 
 const copy = {
@@ -24,6 +24,7 @@ const copy = {
 export const BookingCTA = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const whatsappLink = buildWhatsAppLink(lang);
 
   return (
     <section id="contato" className="relative py-24 md:py-32 overflow-hidden">
@@ -44,7 +45,7 @@ export const BookingCTA = () => {
 
         <div className="mt-14 max-w-md mx-auto reveal">
           <a
-            href={WHATSAPP_LINK}
+            href={whatsappLink}
             target="_blank" rel="noreferrer"
             className="glass-card group p-8 flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-gold transition-all"
           >

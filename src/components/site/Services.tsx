@@ -1,4 +1,5 @@
 import { Flame, Sparkles as SparklesIcon, Sun, Zap, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/lib/language";
 
 const services = {
@@ -23,6 +24,7 @@ const copy = {
     titleGold: "brilho exclusivo",
     body: "Seja para tratar preocupações específicas com a pele ou esculpir sua silhueta, cada serviço é feito sob medida por Christiane para entregar resultados visíveis, que elevam sua confiança e proporcionam relaxamento profundo.",
     cta: "Agendar agora",
+    allServices: "Ver todos os tratamentos",
   },
   en: {
     eyebrow: "Some of our best treatments",
@@ -30,6 +32,7 @@ const copy = {
     titleGold: "signature glow",
     body: "Whether you are targeting specific skin concerns or sculpting your silhouette, each service is custom-crafted by Christiane to deliver visible, confidence-boosting results alongside deep relaxation.",
     cta: "Book now",
+    allServices: "See all treatments",
   },
 };
 
@@ -65,6 +68,15 @@ export const Services = () => {
               </a>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center reveal">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 border border-primary/40 text-foreground font-medium px-6 py-3 rounded-full hover:bg-primary/10 transition-all"
+          >
+            {t.allServices} <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

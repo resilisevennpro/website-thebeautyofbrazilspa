@@ -108,6 +108,44 @@ final **não pode** ser visualmente idêntico ao WordPress atual.
 6. **Renomear branding interno** (WhatsApp, Instagram, nome do negócio) em
    todos os componentes que fazem referência direta
 
+## Diagnóstico do briefing (formulário de onboarding, 2026-09)
+
+Comparamos as respostas da Christiane no formulário de briefing/onboarding
+com o site atual. Conclusão: o site **não está desalinhado**, mas está
+**incompleto** — falta preencher conteúdo que ela já forneceu, não
+reestruturar visual.
+
+**Decisões tomadas (2026-09-25):**
+- [x] **Página separada de serviços implementada** — `/services`
+      (`src/pages/Services.tsx`), com os 12 tratamentos organizados em duas
+      categorias (Elite Skincare Treatments / Body Contour Treatments), sem
+      preços. A Homepage mantém só os 4 tratamentos em destaque. `LanguageProvider`
+      foi movido para `App.tsx` (antes só existia dentro de `Index.tsx`) para
+      o idioma persistir entre as páginas via navegação client-side (`Link`
+      do React Router em vez de `<a>`)
+- [x] **Tagline única aplicada** — *"Where Brazilian Beauty Meets Luxury
+      Aesthetics"* (EN) / *"Onde a Beleza Brasileira Encontra a Estética de
+      Luxo"* (PT), em `Hero.tsx`, substituindo a tagline herdada do WordPress
+
+**Respostas da Christiane (2026-09-25):**
+- **Diferencial competitivo:** confirmado que ela não tem um definido — não
+  é algo a resolver por conta própria, ela mesma não sabe ainda
+- **Fotos/vídeos reais:** não vai conseguir enviar por enquanto (acervo
+  desorganizado). Site segue com as imagens de banco atuais. Ela vai enviar
+  **depoimentos escritos** em breve — sem placeholder até chegarem
+- **Logo oficial:** ainda em produção pela Christiane. Mantém favicon/
+  og-image placeholder atuais até ela enviar
+- **Lista de serviços:** confirmada, os 12 itens estão corretos
+- **Preços:** decidido **não exibir preço nenhum** na página de serviços
+  (nem os que já tínhamos, ex: Body Contour Sculpt $120.56 etc. — não
+  mostrar, mesmo sendo dado real, por decisão de produto)
+- **WhatsApp:** confirmado, (954) 405-5414 é o mesmo número usado no
+  WhatsApp Business
+
+**Ainda pendente:**
+- [ ] Depoimentos escritos da Christiane (sem placeholder)
+- [ ] Logo oficial da marca (sem placeholder além do atual)
+
 ## SEO / AEO / GEO — a mexer em breve
 
 O site da Dra. Gabriele tinha um trabalho de SEO/AEO/GEO relativamente

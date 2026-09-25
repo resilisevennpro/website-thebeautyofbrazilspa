@@ -1,14 +1,13 @@
-import heroImg from "@/assets/tbobs/hero-facial.jpg";
+import heroImg from "@/assets/tbobs/christiane-portrait.png";
 import { ArrowRight, Star, Sparkles } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 
 const copy = {
   pt: {
     eyebrow: "Aesthetics Spa · Pembroke Pines, FL",
-    title1: "Entregue-se ao",
-    titleGold: "Brilho Brasileiro",
-    title3: "em sua pele.",
+    title1: "Onde a Beleza Brasileira",
+    titleGold: "Encontra a Estética de Luxo",
     subtitle:
       "A The Beauty of Brazil SPA une skincare clínico avançado a tratamentos corporais personalizados e luxuosos. Entregamos resultados visíveis e radiantes para elevar sua beleza natural e confiança.",
     ctaPrimary: "Agende Sua Sessão",
@@ -20,9 +19,8 @@ const copy = {
   },
   en: {
     eyebrow: "Aesthetics Spa · Pembroke Pines, FL",
-    title1: "Indulge in the",
-    titleGold: "Brazilian Glow",
-    title3: "Experience.",
+    title1: "Where Brazilian Beauty",
+    titleGold: "Meets Luxury Aesthetics",
     subtitle:
       "The Beauty of Brazil SPA blends advanced clinical skincare with luxurious, personalized body treatments. We deliver visible, radiant results to elevate your natural beauty and confidence.",
     ctaPrimary: "Book Your Appointment",
@@ -37,6 +35,7 @@ const copy = {
 export const Hero = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const whatsappLink = buildWhatsAppLink(lang);
 
   return (
     <section className="relative grain min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
@@ -60,15 +59,13 @@ export const Hero = () => {
             {t.title1}
             <br />
             <span className="gold-text italic font-accent">{t.titleGold}</span>
-            <br />
-            {t.title3}
           </h1>
           <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
             {t.subtitle}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappLink}
               target="_blank" rel="noreferrer"
               className="shimmer group inline-flex items-center justify-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-7 py-4 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
             >
@@ -103,7 +100,7 @@ export const Hero = () => {
             <div className="relative w-[260px] sm:w-[320px] md:w-[420px] aspect-[3/4] rounded-[2rem] overflow-hidden shadow-luxe bg-card animate-float-slow">
               <img
                 src={heroImg}
-                alt="Advanced skincare treatment at The Beauty of Brazil SPA"
+                alt="Christiane Roberts, founder of The Beauty of Brazil SPA"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />

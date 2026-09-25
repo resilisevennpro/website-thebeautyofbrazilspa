@@ -1,5 +1,5 @@
 import { Sun, Sparkles } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 import g1 from "@/assets/tbobs/gallery-1.jpg";
 import g2 from "@/assets/tbobs/gallery-2.jpg";
@@ -53,6 +53,7 @@ const copy = {
 export const EliteSkincare = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const whatsappLink = buildWhatsAppLink(lang);
 
   return (
     <section id="skincare" className="py-24 md:py-32 relative overflow-hidden">
@@ -80,7 +81,7 @@ export const EliteSkincare = () => {
             </div>
 
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappLink}
               target="_blank" rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-6 py-3 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
             >

@@ -1,5 +1,5 @@
 import { Gem } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 import r1 from "@/assets/tbobs/service-body-contour-sculpt.jpg";
 import r2 from "@/assets/tbobs/service-firming-rf.jpeg";
@@ -46,6 +46,7 @@ const copy = {
 export const BodyContour = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const whatsappLink = buildWhatsAppLink(lang);
 
   return (
     <section id="contour" className="py-24 md:py-32 relative overflow-hidden bg-gradient-cream">
@@ -114,7 +115,7 @@ export const BodyContour = () => {
             </ul>
 
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappLink}
               target="_blank" rel="noreferrer"
               className="mt-9 inline-flex items-center gap-2 border border-primary/40 px-6 py-3 rounded-full hover:bg-primary/10 transition-all font-medium"
             >

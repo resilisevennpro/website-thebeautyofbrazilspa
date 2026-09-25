@@ -1,5 +1,5 @@
 import { Instagram, Leaf, MessageCircle } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 
 const copy = {
@@ -34,6 +34,7 @@ const copy = {
 export const Footer = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const whatsappLink = buildWhatsAppLink(lang);
 
   return (
     <footer className="border-t border-primary/20 bg-secondary text-secondary-foreground py-14">
@@ -59,7 +60,7 @@ export const Footer = () => {
             <a href="https://instagram.com/thebeautyofbrazilspa" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center hover:bg-primary/10 transition">
               <Instagram size={16} className="text-primary" />
             </a>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center hover:bg-primary/10 transition">
+            <a href={whatsappLink} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center hover:bg-primary/10 transition">
               <MessageCircle size={16} className="text-primary" />
             </a>
           </div>

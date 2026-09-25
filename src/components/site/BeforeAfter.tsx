@@ -1,4 +1,4 @@
-import { WHATSAPP_LINK } from "@/lib/whatsapp";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 import glow from "@/assets/tbobs/service-signature-glow.webp";
 import sculpt from "@/assets/tbobs/service-body-contour-sculpt.jpg";
@@ -40,6 +40,7 @@ const copy = {
 export const BeforeAfter = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const whatsappLink = buildWhatsAppLink(lang);
 
   return (
     <section id="resultados" className="py-24 md:py-32 relative">
@@ -71,7 +72,7 @@ export const BeforeAfter = () => {
 
         <div className="mt-12 text-center reveal">
           <a
-            href={WHATSAPP_LINK}
+            href={whatsappLink}
             target="_blank" rel="noreferrer"
             className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground font-medium px-7 py-3.5 rounded-full shadow-luxe hover:-translate-y-0.5 hover:gap-3 transition-all"
           >
