@@ -1,7 +1,6 @@
 import { Calendar, MessageCircle, Sparkles, Wand2 } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
-import leaf from "@/assets/tbobs/leaf-decor.png";
 
 const copy = {
   pt: {
@@ -9,7 +8,7 @@ const copy = {
     title1: "A jornada da sua pele até a",
     titleGold: "perfeição",
     steps: [
-      { n: "01", icon: Calendar, title: "Agende sua sessão", desc: "Ligue, envie mensagem ou agende online para reservar seu horário na The Beauty of Brazil SPA." },
+      { n: "01", icon: Calendar, title: "Agende sua sessão", desc: "Ligue ou envie mensagem no WhatsApp para reservar seu horário na The Beauty of Brazil SPA." },
       { n: "02", icon: Wand2, title: "Consulta personalizada", desc: "Christiane avalia sua pele e seus objetivos para recomendar o tratamento ideal para você." },
       { n: "03", icon: Sparkles, title: "Seu brilho, entregue", desc: "Tratamentos não invasivos e de alta performance, com resultados visíveis." },
     ],
@@ -21,7 +20,7 @@ const copy = {
     title1: "Your skin's journey to",
     titleGold: "perfection",
     steps: [
-      { n: "01", icon: Calendar, title: "Book your session", desc: "Call, text, or book online to reserve your appointment at The Beauty of Brazil SPA." },
+      { n: "01", icon: Calendar, title: "Book your session", desc: "Call or text us on WhatsApp to reserve your appointment at The Beauty of Brazil SPA." },
       { n: "02", icon: Wand2, title: "Personalized consultation", desc: "Christiane evaluates your skin and goals to recommend the ideal treatment for you." },
       { n: "03", icon: Sparkles, title: "Your glow, delivered", desc: "High-performance, non-invasive treatments with visible, radiant results." },
     ],
@@ -37,17 +36,6 @@ export const HowItWorks = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden bg-secondary text-secondary-foreground">
-      <img
-        src={leaf}
-        aria-hidden
-        className="absolute -right-24 -top-16 w-[26rem] opacity-[0.08] rotate-12 pointer-events-none select-none"
-      />
-      <img
-        src={leaf}
-        aria-hidden
-        className="absolute -left-28 -bottom-20 w-[22rem] opacity-[0.06] -rotate-[24deg] pointer-events-none select-none"
-      />
-
       <div className="container relative">
         <div className="text-center max-w-2xl mx-auto reveal">
           <span className="font-accent text-primary text-xl">{t.eyebrow}</span>

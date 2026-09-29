@@ -1,4 +1,4 @@
-import heroImg from "@/assets/tbobs/christiane-portrait.png";
+import heroImg from "@/assets/imagens/christiane-portrait.png";
 import { ArrowRight, Star, Sparkles } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
@@ -12,7 +12,6 @@ const copy = {
       "A The Beauty of Brazil SPA une skincare clínico avançado a tratamentos corporais personalizados e luxuosos. Entregamos resultados visíveis e radiantes para elevar sua beleza natural e confiança.",
     ctaPrimary: "Agende Sua Sessão",
     ctaSecondary: "Ver Tratamentos",
-    trust: "Esteticista Licenciada · Técnica Brasileira",
     badgeTitle: "Licença de Esteticista da Flórida",
     badgeSub: "Christiane Roberts",
     ratingLabel: "Agende Agora",
@@ -25,7 +24,6 @@ const copy = {
       "The Beauty of Brazil SPA blends advanced clinical skincare with luxurious, personalized body treatments. We deliver visible, radiant results to elevate your natural beauty and confidence.",
     ctaPrimary: "Book Your Appointment",
     ctaSecondary: "Explore Treatments",
-    trust: "Licensed Esthetician · Brazilian Technique",
     badgeTitle: "Florida Esthetician License",
     badgeSub: "Christiane Roberts",
     ratingLabel: "Book Now",
@@ -79,23 +77,14 @@ export const Hero = () => {
               {t.ctaSecondary}
             </a>
           </div>
-
-          <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex -space-x-2">
-              {[1,2,3,4].map(i => (
-                <div key={i} className="w-9 h-9 rounded-full border-2 border-background bg-gradient-gold" />
-              ))}
-            </div>
-            <span>{t.trust}</span>
-          </div>
         </div>
 
         <div className="relative reveal lg:col-span-6 flex justify-center lg:justify-end mt-4 lg:mt-0">
           <div className="absolute inset-0 bg-gradient-radial-gold blur-2xl" />
 
           <div className="relative">
-            <div className="absolute -inset-4 md:-inset-6 rounded-[2.5rem] border border-primary/30" />
-            <div className="absolute -inset-8 md:-inset-12 rounded-[3rem] border border-primary/15" />
+            <div className="absolute -inset-4 md:-inset-6 rounded-[2.5rem] border border-secondary/40" />
+            <div className="absolute -inset-8 md:-inset-12 rounded-[3rem] border border-secondary/20" />
 
             <div className="relative w-[260px] sm:w-[320px] md:w-[420px] aspect-[3/4] rounded-[2rem] overflow-hidden shadow-luxe bg-card animate-float-slow">
               <img

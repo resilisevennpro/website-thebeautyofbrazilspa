@@ -1,5 +1,5 @@
-import portrait from "@/assets/tbobs/christiane-portrait.png";
-import portrait2 from "@/assets/tbobs/about-portrait.jpg";
+import portrait from "@/assets/imagens/christiane-portrait.png";
+import portrait2 from "@/assets/imagens/about-portrait.jpg";
 import { useLanguage } from "@/lib/language";
 
 const copy = {
@@ -10,8 +10,8 @@ const copy = {
     p1: "Por muitos anos, Christiane construiu sua carreira em gestão administrativa e financeira, desenvolvendo fortes habilidades de organização, liderança e atendimento ao cliente. Embora valorizasse muito essa experiência, ela sempre se sentiu atraída pela indústria da beleza e do bem-estar e sonhava em ajudar as pessoas a se sentirem confiantes em sua própria pele.",
     p2: "Essa paixão inspirou uma transição de carreira que mudou sua vida. Ela cursou Estética na Flórida, concluiu seu treinamento profissional e obteve sua Licença de Esteticista da Flórida. Hoje, ela combina sua formação em negócios com sua dedicação ao skincare e ao bem-estar corporal, especializando-se em cuidado excepcional, resultados visíveis e uma experiência relaxante que fortalece confiança e bem-estar.",
     quote: "Para mim, estética é mais do que uma profissão, é uma verdadeira paixão. Ajudar as pessoas a se sentirem e parecerem bem é a parte mais gratificante da minha jornada.",
-    licenseTitle: "Flórida",
-    licenseSub: "Licença de Esteticista",
+    licenseTitle: "Profissional de Confiança",
+    licenseSub: "Técnica Brasileira Certificada",
   },
   en: {
     eyebrow: "Meet the founder",
@@ -20,8 +20,8 @@ const copy = {
     p1: "For many years, Christiane built her career in administrative and financial management, developing strong organizational, leadership, and client service skills. While she truly valued that experience, she always felt drawn to the beauty and wellness industry and dreamed of helping people feel confident in their own skin.",
     p2: "That passion inspired a life-changing career transition. She pursued her education in Esthetics in Florida, completed her professional training, and earned her Florida Esthetician License. Today, she combines her business background with her dedication to skincare and body wellness, specializing in exceptional care, visible results, and a relaxing experience that enhances both confidence and well-being.",
     quote: "For me, aesthetics is more than a profession; it is a true passion. Helping people look and feel their best is the most rewarding part of my journey.",
-    licenseTitle: "Florida",
-    licenseSub: "Esthetician License",
+    licenseTitle: "Trusted Professional",
+    licenseSub: "Certified Brazilian Technique",
   },
 };
 
@@ -43,8 +43,8 @@ export const About = () => {
                 <img src={portrait2} alt="The Beauty of Brazil SPA skincare treatment" className="w-full h-full object-cover" />
               </div>
               <div className="luxe-card p-5 text-center">
-                <div className="font-accent text-primary text-base leading-none">{t.licenseTitle}</div>
-                <div className="text-lg font-display gold-text mt-1">{t.licenseSub}</div>
+                <div className="font-accent text-secondary text-sm leading-tight italic">{t.licenseTitle}</div>
+                <div className="text-base font-display text-secondary mt-1.5 leading-tight">{t.licenseSub}</div>
               </div>
             </div>
           </div>

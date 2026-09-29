@@ -1,9 +1,9 @@
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
-import glow from "@/assets/tbobs/service-signature-glow.webp";
-import sculpt from "@/assets/tbobs/service-body-contour-sculpt.jpg";
-import firmingRf from "@/assets/tbobs/service-firming-rf.jpeg";
-import antiAging from "@/assets/tbobs/service-anti-aging.webp";
+import glow from "@/assets/imagens/service-signature-glow.webp";
+import sculpt from "@/assets/imagens/service-body-contour-sculpt.jpg";
+import firmingRf from "@/assets/imagens/service-firming-rf.jpeg";
+import antiAging from "@/assets/imagens/service-anti-aging.webp";
 
 const treatments = {
   pt: [

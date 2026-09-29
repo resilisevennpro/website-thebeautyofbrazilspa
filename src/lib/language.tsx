@@ -3,10 +3,11 @@ import { createContext, useContext, useState, ReactNode } from "react";
 export type Lang = "pt" | "en";
 
 /**
- * Dev default is "pt" per project decision (see REESTRUTURACAO.md).
- * Flip to "en" here before production launch.
+ * Production default is "en" per project decision (see REESTRUTURACAO.md).
+ * The site targets a US business in Florida; Portuguese is opt-in via the
+ * navbar toggle for Brazilian clients.
  */
-const DEFAULT_LANG: Lang = "pt";
+const DEFAULT_LANG: Lang = "en";
 
 type LanguageContextValue = {
   lang: Lang;

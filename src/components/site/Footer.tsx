@@ -1,6 +1,7 @@
-import { Instagram, Leaf, MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import logo from "@/assets/imagens/logo.png";
 
 const copy = {
   pt: {
@@ -41,7 +42,7 @@ export const Footer = () => {
       <div className="container grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-2 font-display text-2xl">
-            <Leaf className="text-primary" size={22} />
+            <img src={logo} alt="The Beauty of Brazil" className="w-10 h-10 rounded-full" />
             The Beauty of <span className="gold-text">Brazil</span>
           </div>
           <p className="mt-3 text-sm text-secondary-foreground/70 max-w-xs">{t.tagline}</p>

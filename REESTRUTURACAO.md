@@ -16,15 +16,13 @@ documentados separadamente em [IDENTIDADE-VISUAL.md](IDENTIDADE-VISUAL.md).
 
 ## Idioma: site bilíngue (PT/EN)
 
-O site final terá toggle de idioma. **Atenção à inversão entre fases:**
+O site tem toggle de idioma no Navbar (PT/EN).
 
-- **Em desenvolvimento/teste:** idioma primário (carregado por padrão) =
-  **português**
-- **Em produção (após aprovação do cliente):** idioma primário = **inglês**,
-  com português como secundário (toggle) — negócio é nos EUA, mas atende
-  público brasileiro
-- Implementar i18n desde já (não hardcode de texto), com uma flag central
-  simples pra trocar o idioma padrão na virada dev → produção
+- ✅ **Idioma padrão trocado para inglês em 2026-09-29** (`DEFAULT_LANG` em
+  `src/lib/language.tsx`), refletindo a virada dev → produção. Português
+  fica disponível via toggle, para clientes brasileiros
+- Durante boa parte do desenvolvimento o padrão foi português, pra facilitar
+  revisão interna; já não é mais o caso
 
 ## Estado atual (herdado da Dra. Gabriele)
 
@@ -133,8 +131,8 @@ reestruturar visual.
 - **Fotos/vídeos reais:** não vai conseguir enviar por enquanto (acervo
   desorganizado). Site segue com as imagens de banco atuais. Ela vai enviar
   **depoimentos escritos** em breve — sem placeholder até chegarem
-- **Logo oficial:** ainda em produção pela Christiane. Mantém favicon/
-  og-image placeholder atuais até ela enviar
+- **Logo oficial:** ✅ recebida em 2026-09-29 (`public/logomarca-thebeautyofbrazil.png`)
+  e aplicada em: Navbar, Footer, favicon (`public/favicon.png`)
 - **Lista de serviços:** confirmada, os 12 itens estão corretos
 - **Preços:** decidido **não exibir preço nenhum** na página de serviços
   (nem os que já tínhamos, ex: Body Contour Sculpt $120.56 etc. — não
@@ -144,7 +142,7 @@ reestruturar visual.
 
 **Ainda pendente:**
 - [ ] Depoimentos escritos da Christiane (sem placeholder)
-- [ ] Logo oficial da marca (sem placeholder além do atual)
+- [x] Logo oficial da marca — recebida e aplicada em 2026-09-29
 
 ## SEO / AEO / GEO — a mexer em breve
 
@@ -170,10 +168,10 @@ portado (meta tags, `BeautySalon` schema simples). Falta:
       citável para IAs generativas (respostas diretas, listas claras de
       serviços/preços, bio factual) — parcialmente resolvido pelo texto
       real já migrado, mas vale revisão dedicada
-- [ ] **og-image.jpg / favicon** — hoje são placeholders temporários (foto
-      de tratamento genérica + ícone padrão); trocar por logo oficial e uma
-      imagem de compartilhamento pensada especificamente para redes sociais
-      assim que a marca enviar os assets
+- [x] **favicon** — agora é a logo oficial (`public/favicon.png`)
+- [ ] **og-image.jpg** — ainda é uma foto de tratamento genérica; trocar por
+      uma imagem de compartilhamento pensada especificamente para redes
+      sociais (pode incorporar a logo agora que já temos ela)
 - [ ] **Verificação de domínio** (Facebook, Google Search Console etc.) —
       a da Dra. Gabriele foi removida do `index.html`; gerar uma nova para
       thebeautyofbrazilspa.com quando for configurar
@@ -189,8 +187,7 @@ portado (meta tags, `BeautySalon` schema simples). Falta:
       thebeautyofbrazilspa.com)
 - [x] Cores exatas (hex) e fontes do tema WordPress → ver [IDENTIDADE-VISUAL.md](IDENTIDADE-VISUAL.md)
 - [x] Lista completa de serviços/preços → ver [SERVICOS-PRECOS.md](SERVICOS-PRECOS.md)
-- [ ] **Logo oficial da marca** — cliente vai enviar; até lá, favicon e
-      og-image estão com placeholders (ver seção `public/` acima)
+- [x] **Logo oficial da marca** — recebida e aplicada (ver seção `public/` acima)
 - [ ] SEO/AEO/GEO completo — ver seção dedicada acima
 
 > Convenção: itens marcados `[PENDENTE DE VALIDAÇÃO]` nos componentes devem

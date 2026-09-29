@@ -5,10 +5,18 @@ import { Footer } from "@/components/site/Footer";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
 import { ArrowRight, Calendar, MessageCircle, Sparkles, Wand2 } from "lucide-react";
-import glowImg from "@/assets/tbobs/service-signature-glow.webp";
-import antiAgingImg from "@/assets/tbobs/service-anti-aging.webp";
-import sculptImg from "@/assets/tbobs/service-body-contour-sculpt.jpg";
-import firmingImg from "@/assets/tbobs/service-firming-rf.jpeg";
+import glowImg from "@/assets/imagens/service-signature-glow.webp";
+import antiAgingImg from "@/assets/imagens/service-anti-aging.webp";
+import sculptImg from "@/assets/imagens/service-body-contour-sculpt.jpg";
+import firmingImg from "@/assets/imagens/service-firming-rf.jpeg";
+import diamondRadianceImg from "@/assets/imagens/service-diamond-radiance.png";
+import collagenRenewalImg from "@/assets/imagens/service-collagen-renewal.png";
+import clarifyingAcneImg from "@/assets/imagens/service-clarifying-acne.png";
+import microcurrentSculptImg from "@/assets/imagens/service-microcurrent-sculpt.png";
+import backDetoxImg from "@/assets/imagens/service-back-detox.png";
+import nanoInfusionImg from "@/assets/imagens/service-nano-infusion.png";
+import contourDefineImg from "@/assets/imagens/service-contour-define.avif";
+import peelImg from "@/assets/imagens/chemical-peel-facial.webp";
 
 const metaCopy = {
   pt: {
@@ -24,37 +32,37 @@ const metaCopy = {
 const skincare = {
   pt: [
     { title: "Signature Glow Facial", tag: "Hidratação & Brilho", img: glowImg, desc: "Facial de limpeza profunda com terapia a vácuo e alta frequência, finalizado com máscara hidratante para uma pele equilibrada e radiante." },
-    { title: "Diamond Radiance Facial", tag: "Renovação da Pele", desc: "Tratamento de renovação com esfoliação de diamante, tecnologia de ultrassom e sérum nutritivo para uma pele mais lisa e radiante." },
-    { title: "Collagen Renewal Facial", tag: "Antienvelhecimento", desc: "Facial antienvelhecimento que combina limpeza profunda, séruns potencializados por ultrassom e crioterapia para lifting, hidratação e suavização de linhas finas." },
+    { title: "Diamond Radiance Facial", tag: "Renovação da Pele", img: diamondRadianceImg, desc: "Tratamento de renovação com esfoliação de diamante, tecnologia de ultrassom e sérum nutritivo para uma pele mais lisa e radiante." },
+    { title: "Collagen Renewal Facial", tag: "Antienvelhecimento", img: collagenRenewalImg, desc: "Facial antienvelhecimento que combina limpeza profunda, séruns potencializados por ultrassom e crioterapia para lifting, hidratação e suavização de linhas finas." },
     { title: "Radiofrequency Anti-Aging Facial", tag: "Antienvelhecimento", img: antiAgingImg, desc: "Usa tecnologia de radiofrequência para estimular a produção de colágeno, firmar a pele e reduzir linhas finas e rugas." },
-    { title: "Clarifying Acne Facial", tag: "Pele Oleosa & Acne", desc: "Tratamento direcionado para pele oleosa e com tendência à acne, com extrações, alta frequência e máscara calmante para reduzir inflamação." },
-    { title: "Microcurrent Sculpt Facial", tag: "Lifting Facial", desc: "Tratamento não invasivo que usa microcorrente para tonificar os músculos faciais, proporcionando um efeito lifting e esculpido." },
-    { title: "Back Detox Facial", tag: "Limpeza Profunda", desc: "Tratamento de limpeza profunda para as costas, combinando esfoliação, extrações e alta frequência para uma pele limpa e renovada." },
-    { title: "Brighten & Glow Peel", tag: "Manchas & Uniformidade", desc: "Peeling renovador que trata hiperpigmentação e danos solares, revelando uma pele mais lisa e uniforme." },
-    { title: "Nano Infusion Facial", tag: "Hidratação & Textura", desc: "Usa tecnologia de nano-agulhamento para infundir séruns especializados e antioxidantes, melhorando hidratação e textura sem tempo de recuperação." },
+    { title: "Clarifying Acne Facial", tag: "Pele Oleosa & Acne", img: clarifyingAcneImg, desc: "Tratamento direcionado para pele oleosa e com tendência à acne, com extrações, alta frequência e máscara calmante para reduzir inflamação." },
+    { title: "Microcurrent Sculpt Facial", tag: "Lifting Facial", img: microcurrentSculptImg, desc: "Tratamento não invasivo que usa microcorrente para tonificar os músculos faciais, proporcionando um efeito lifting e esculpido." },
+    { title: "Back Detox Facial", tag: "Limpeza Profunda", img: backDetoxImg, desc: "Tratamento de limpeza profunda para as costas, combinando esfoliação, extrações e alta frequência para uma pele limpa e renovada." },
+    { title: "Brighten & Glow Peel", tag: "Manchas & Uniformidade", img: peelImg, desc: "Peeling renovador que trata hiperpigmentação e danos solares, revelando uma pele mais lisa e uniforme." },
+    { title: "Nano Infusion Facial", tag: "Hidratação & Textura", img: nanoInfusionImg, desc: "Usa tecnologia de nano-agulhamento para infundir séruns especializados e antioxidantes, melhorando hidratação e textura sem tempo de recuperação." },
   ],
   en: [
     { title: "Signature Glow Facial", tag: "Hydration & Glow", img: glowImg, desc: "A deep-cleansing facial with vacuum therapy and high-frequency technology, finished with a hydrating mask for balanced, radiant skin." },
-    { title: "Diamond Radiance Facial", tag: "Skin Resurfacing", desc: "A resurfacing treatment with diamond exfoliation, ultrasound technology, and a nutrient serum for a smoother, more radiant complexion." },
-    { title: "Collagen Renewal Facial", tag: "Anti-Aging", desc: "An age-defying facial combining deep cleansing, ultrasound-enhanced serums, and cryo-cooling therapy to lift, hydrate, and smooth fine lines." },
+    { title: "Diamond Radiance Facial", tag: "Skin Resurfacing", img: diamondRadianceImg, desc: "A resurfacing treatment with diamond exfoliation, ultrasound technology, and a nutrient serum for a smoother, more radiant complexion." },
+    { title: "Collagen Renewal Facial", tag: "Anti-Aging", img: collagenRenewalImg, desc: "An age-defying facial combining deep cleansing, ultrasound-enhanced serums, and cryo-cooling therapy to lift, hydrate, and smooth fine lines." },
     { title: "Radiofrequency Anti-Aging Facial", tag: "Anti-Aging", img: antiAgingImg, desc: "Uses Radiofrequency technology to stimulate collagen production, tighten skin, and reduce the appearance of fine lines and wrinkles." },
-    { title: "Clarifying Acne Facial", tag: "Acne & Oily Skin", desc: "A targeted treatment for acne-prone and oily skin, with extractions, high-frequency, and a calming mask to reduce inflammation." },
-    { title: "Microcurrent Sculpt Facial", tag: "Facial Lifting", desc: "A non-invasive treatment that uses microcurrent technology to tone facial muscles for a lifted, sculpted appearance." },
-    { title: "Back Detox Facial", tag: "Deep Cleanse", desc: "A deep-cleansing treatment for the back, combining exfoliation, extractions, and high-frequency therapy for clear, refreshed skin." },
-    { title: "Brighten & Glow Peel", tag: "Pigmentation & Tone", desc: "A resurfacing peel that targets hyperpigmentation and sun damage, revealing a smoother, more even complexion." },
-    { title: "Nano Infusion Facial", tag: "Hydration & Texture", desc: "Uses nano-needling technology to deliver specialized serums and antioxidants, improving hydration and texture with no downtime." },
+    { title: "Clarifying Acne Facial", tag: "Acne & Oily Skin", img: clarifyingAcneImg, desc: "A targeted treatment for acne-prone and oily skin, with extractions, high-frequency, and a calming mask to reduce inflammation." },
+    { title: "Microcurrent Sculpt Facial", tag: "Facial Lifting", img: microcurrentSculptImg, desc: "A non-invasive treatment that uses microcurrent technology to tone facial muscles for a lifted, sculpted appearance." },
+    { title: "Back Detox Facial", tag: "Deep Cleanse", img: backDetoxImg, desc: "A deep-cleansing treatment for the back, combining exfoliation, extractions, and high-frequency therapy for clear, refreshed skin." },
+    { title: "Brighten & Glow Peel", tag: "Pigmentation & Tone", img: peelImg, desc: "A resurfacing peel that targets hyperpigmentation and sun damage, revealing a smoother, more even complexion." },
+    { title: "Nano Infusion Facial", tag: "Hydration & Texture", img: nanoInfusionImg, desc: "Uses nano-needling technology to deliver specialized serums and antioxidants, improving hydration and texture with no downtime." },
   ],
 };
 
 const bodyContour = {
   pt: [
     { title: "Body Contour Sculpt Treatment", tag: "Redução de Gordura", img: sculptImg, desc: "Serviço exclusivo 3 em 1 que combina ativação linfática, cavitação e radiofrequência para redução de gordura e firmamento da pele." },
-    { title: "Contour & Define Body Treatment", tag: "Contorno Corporal", desc: "Nosso método brasileiro 4 em 1 que combina ativação linfática, cavitação, radiofrequência e terapia a vácuo para o contorno corporal definitivo." },
+    { title: "Contour & Define Body Treatment", tag: "Contorno Corporal", img: contourDefineImg, desc: "Nosso método brasileiro 4 em 1 que combina ativação linfática, cavitação, radiofrequência e terapia a vácuo para o contorno corporal definitivo." },
     { title: "Firming Radiofrequency Treatment", tag: "Firmeza da Pele", img: firmingImg, desc: "Energia avançada de RF que firma e tonifica a pele enquanto reduz a aparência de celulite, finalizado com drenagem por terapia a vácuo." },
   ],
   en: [
     { title: "Body Contour Sculpt Treatment", tag: "Fat Reduction", img: sculptImg, desc: "A signature 3-in-1 service combining lymphatic activation, cavitation, and radiofrequency for fat reduction and skin tightening." },
-    { title: "Contour & Define Body Treatment", tag: "Body Contouring", desc: "Our Brazilian 4-in-1 method combining lymphatic activation, cavitation, radiofrequency, and vacuum therapy for the ultimate body sculpting." },
+    { title: "Contour & Define Body Treatment", tag: "Body Contouring", img: contourDefineImg, desc: "Our Brazilian 4-in-1 method combining lymphatic activation, cavitation, radiofrequency, and vacuum therapy for the ultimate body sculpting." },
     { title: "Firming Radiofrequency Treatment", tag: "Skin Firming", img: firmingImg, desc: "Advanced RF energy tightens and tones skin while reducing the appearance of cellulite, completed with vacuum therapy drainage." },
   ],
 };

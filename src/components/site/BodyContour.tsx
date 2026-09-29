@@ -1,8 +1,8 @@
 import { Gem } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
-import r1 from "@/assets/tbobs/service-body-contour-sculpt.jpg";
-import r2 from "@/assets/tbobs/service-firming-rf.jpeg";
+import r1 from "@/assets/imagens/service-body-contour-sculpt.jpg";
+import r2 from "@/assets/imagens/service-firming-rf.jpeg";
 
 const copy = {
   pt: {
@@ -58,8 +58,8 @@ export const BodyContour = () => {
       <div className="container relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 reveal order-2 lg:order-1">
-            <div className="grid grid-cols-12 gap-4">
-              <figure className="col-span-7 relative rounded-2xl overflow-hidden border border-border shadow-luxe aspect-[3/4] group">
+            <div className="grid grid-cols-2 sm:grid-cols-12 gap-4">
+              <figure className="col-span-2 sm:col-span-7 relative rounded-2xl overflow-hidden border border-border shadow-luxe aspect-[3/4] group">
                 <img
                   src={r1}
                   alt="Body Contour Sculpt Treatment"
@@ -71,8 +71,8 @@ export const BodyContour = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
               </figure>
 
-              <div className="col-span-5 flex flex-col gap-4">
-                <figure className="relative rounded-2xl overflow-hidden border border-border shadow-luxe aspect-[3/4] group mt-8">
+              <div className="col-span-2 sm:col-span-5 flex flex-col gap-4">
+                <figure className="relative rounded-2xl overflow-hidden border border-border shadow-luxe aspect-[3/4] group sm:mt-8">
                   <img
                     src={r2}
                     alt="Firming Radiofrequency Treatment"
@@ -117,7 +117,7 @@ export const BodyContour = () => {
             <a
               href={whatsappLink}
               target="_blank" rel="noreferrer"
-              className="mt-9 inline-flex items-center gap-2 border border-primary/40 px-6 py-3 rounded-full hover:bg-primary/10 transition-all font-medium"
+              className="mt-9 inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full shadow-luxe hover:-translate-y-0.5 transition-all font-medium"
             >
               <Gem size={16} className="text-primary" />
               {t.cta}

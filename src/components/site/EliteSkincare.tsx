@@ -1,10 +1,10 @@
 import { Sun, Sparkles } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
-import g1 from "@/assets/tbobs/gallery-1.jpg";
-import g2 from "@/assets/tbobs/gallery-2.jpg";
-import g3 from "@/assets/tbobs/gallery-3.jpg";
-import g4 from "@/assets/tbobs/gallery-4.jpg";
+import g1 from "@/assets/imagens/gallery-1.jpg";
+import g2 from "@/assets/imagens/gallery-2.jpg";
+import g3 from "@/assets/imagens/gallery-3.jpg";
+import g4 from "@/assets/imagens/gallery-4.jpg";
 
 const gallery = {
   pt: [

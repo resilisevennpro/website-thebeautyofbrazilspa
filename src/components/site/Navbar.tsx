@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Leaf, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import logo from "@/assets/imagens/logo.png";
 
 const links = {
   pt: [
@@ -43,7 +44,7 @@ export const Navbar = () => {
     >
       <nav className="container flex items-center justify-between">
         <Link to="/" className={`flex items-center gap-2 font-display text-xl md:text-2xl tracking-wide transition-colors ${scrolled ? "text-secondary-foreground" : "text-foreground"}`}>
-          <Leaf className="text-primary" size={20} />
+          <img src={logo} alt="The Beauty of Brazil" className="w-9 h-9 rounded-full" />
           The Beauty of <span className="gold-text font-semibold">Brazil</span>
         </Link>
         <ul className={`hidden md:flex items-center gap-8 text-sm transition-colors ${scrolled ? "text-secondary-foreground/80" : "text-muted-foreground"}`}>
@@ -62,13 +63,11 @@ export const Navbar = () => {
           <button
             onClick={toggleLang}
             aria-label="Toggle language"
-            className={`inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-full border transition-all ${
-              scrolled ? "border-primary/40 text-secondary-foreground" : "border-primary/40 text-foreground"
-            } hover:bg-primary/10`}
+            className="inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-full border border-primary/40 transition-all hover:bg-primary/10"
           >
-            <span className={lang === "pt" ? "text-primary" : ""}>PT</span>
-            <span className="opacity-40">/</span>
-            <span className={lang === "en" ? "text-primary" : ""}>EN</span>
+            <span className={lang === "pt" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>PT</span>
+            <span className={scrolled ? "text-secondary-foreground/40" : "text-muted-foreground/40"}>/</span>
+            <span className={lang === "en" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>EN</span>
           </button>
           <a
             href={whatsappLink}
@@ -82,11 +81,11 @@ export const Navbar = () => {
           <button
             onClick={toggleLang}
             aria-label="Toggle language"
-            className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-full border border-primary/40 text-foreground"
+            className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-full border border-primary/40"
           >
-            <span className={lang === "pt" ? "text-primary" : ""}>PT</span>
-            <span className="opacity-40">/</span>
-            <span className={lang === "en" ? "text-primary" : ""}>EN</span>
+            <span className={lang === "pt" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>PT</span>
+            <span className={scrolled ? "text-secondary-foreground/40" : "text-muted-foreground/40"}>/</span>
+            <span className={lang === "en" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>EN</span>
           </button>
           <button
             className="text-primary"
