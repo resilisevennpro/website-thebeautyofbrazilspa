@@ -56,7 +56,7 @@ export const EliteSkincare = () => {
   const whatsappLink = buildWhatsAppLink(lang);
 
   return (
-    <section id="skincare" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="skincare" className="pt-12 md:pt-16 pb-24 md:pb-32 relative overflow-hidden">
       <div aria-hidden className="absolute -top-20 right-0 w-[480px] h-[480px] rounded-full bg-gradient-radial-gold blur-3xl opacity-70 pointer-events-none" />
 
       <div className="container relative">

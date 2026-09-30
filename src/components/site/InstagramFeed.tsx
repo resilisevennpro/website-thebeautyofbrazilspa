@@ -1,5 +1,6 @@
 import { Instagram } from "lucide-react";
 import { useLanguage } from "@/lib/language";
+import secondaryImg from "@/assets/imagens/instagram-secondary.jpg";
 
 const copy = {
   pt: {
@@ -21,24 +22,36 @@ export const InstagramFeed = () => {
   const t = copy[lang];
 
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="pt-12 md:pt-16 pb-12 md:pb-16 relative">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto reveal">
-          <span className="font-accent text-primary text-xl">@thebeautyofbrazilspa</span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-display">
-            {t.title1} <span className="gold-text italic font-accent">{t.titleGold}</span>
-          </h2>
-          <p className="mt-4 text-muted-foreground">{t.body}</p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="reveal text-center lg:text-left">
+            <span className="font-accent text-primary text-xl">@thebeautyofbrazilspa</span>
+            <h2 className="mt-2 text-4xl md:text-5xl font-display">
+              {t.title1} <span className="gold-text italic font-accent">{t.titleGold}</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground">{t.body}</p>
 
-        <div className="mt-12 text-center reveal">
-          <a
-            href="https://instagram.com/thebeautyofbrazilspa"
-            target="_blank" rel="noreferrer"
-            className="shimmer inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-7 py-3.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
-          >
-            <Instagram size={18} /> {t.cta}
-          </a>
+            <div className="mt-8">
+              <a
+                href="https://instagram.com/thebeautyofbrazilspa"
+                target="_blank" rel="noreferrer"
+                className="shimmer inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-7 py-3.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
+              >
+                <Instagram size={18} /> {t.cta}
+              </a>
+            </div>
+          </div>
+
+          <div className="reveal">
+            <div className="rounded-2xl overflow-hidden border border-border shadow-luxe aspect-square max-w-md mx-auto">
+              <img
+                src={secondaryImg}
+                alt="The Beauty of Brazil Spa"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

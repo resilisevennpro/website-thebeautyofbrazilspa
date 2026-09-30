@@ -43,7 +43,7 @@ export const BeforeAfter = () => {
   const whatsappLink = buildWhatsAppLink(lang);
 
   return (
-    <section id="resultados" className="py-24 md:py-32 relative">
+    <section id="resultados" className="pt-12 md:pt-16 pb-12 md:pb-16 relative">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto reveal">
           <span className="font-accent text-primary text-xl">{t.eyebrow}</span>
@@ -64,7 +64,7 @@ export const BeforeAfter = () => {
                 />
               </div>
               <figcaption className="px-2 pt-4 pb-1 text-center">
-                <span className="font-accent italic text-secondary text-lg">{tr.label}</span>
+                <span className="font-accent italic font-semibold underline text-secondary text-lg">{tr.label}</span>
               </figcaption>
             </figure>
           ))}

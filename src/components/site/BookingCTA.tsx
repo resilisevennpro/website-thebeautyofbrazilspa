@@ -27,7 +27,7 @@ export const BookingCTA = () => {
   const whatsappLink = buildWhatsAppLink(lang);
 
   return (
-    <section id="contato" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="contato" className="relative pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial-gold blur-3xl" />
         <div className="absolute bottom-10 left-10 w-40 h-40 rounded-full bg-primary/20 blur-3xl animate-bokeh" />

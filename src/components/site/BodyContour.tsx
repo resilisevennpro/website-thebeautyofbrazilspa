@@ -101,7 +101,7 @@ export const BodyContour = () => {
             <h2 className="mt-3 font-display text-4xl md:text-6xl leading-[1.05] text-balance">
               {t.title1}
               <br />
-              <span className="gold-text italic font-accent">{t.titleGold}</span>.
+              <span className="gold-text italic font-accent">{t.titleGold}</span>
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">{t.body}</p>
 

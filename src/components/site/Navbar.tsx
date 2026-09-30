@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
@@ -23,31 +23,18 @@ const links = {
 const bookLabel = { pt: "Agendar Agora", en: "Book Now" };
 
 export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { lang, toggleLang } = useLanguage();
   const whatsappLink = buildWhatsAppLink(lang);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-secondary/95 backdrop-blur-xl border-b border-primary/20 py-3 shadow-card-luxe"
-          : "bg-transparent py-5"
-      }`}
-    >
+    <header className="fixed top-0 inset-x-0 z-50 bg-secondary/95 backdrop-blur-xl border-b border-primary/20 py-3 shadow-card-luxe">
       <nav className="container flex items-center justify-between">
-        <Link to="/" className={`flex items-center gap-2 font-display text-xl md:text-2xl tracking-wide transition-colors ${scrolled ? "text-secondary-foreground" : "text-foreground"}`}>
+        <Link to="/" className="flex items-center gap-2 font-display text-xl md:text-2xl tracking-wide text-secondary-foreground">
           <img src={logo} alt="The Beauty of Brazil" className="w-9 h-9 rounded-full" />
           The Beauty of <span className="gold-text font-semibold">Brazil</span>
         </Link>
-        <ul className={`hidden md:flex items-center gap-8 text-sm transition-colors ${scrolled ? "text-secondary-foreground/80" : "text-muted-foreground"}`}>
+        <ul className="hidden md:flex items-center gap-8 text-sm text-secondary-foreground/80">
           {links[lang].map((l) => (
             <li key={l.href}>
               <Link
@@ -65,9 +52,9 @@ export const Navbar = () => {
             aria-label="Toggle language"
             className="inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-full border border-primary/40 transition-all hover:bg-primary/10"
           >
-            <span className={lang === "pt" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>PT</span>
-            <span className={scrolled ? "text-secondary-foreground/40" : "text-muted-foreground/40"}>/</span>
-            <span className={lang === "en" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>EN</span>
+            <span className={lang === "pt" ? "text-primary" : "text-secondary-foreground/60"}>PT</span>
+            <span className="text-secondary-foreground/40">/</span>
+            <span className={lang === "en" ? "text-primary" : "text-secondary-foreground/60"}>EN</span>
           </button>
           <a
             href={whatsappLink}
@@ -83,9 +70,9 @@ export const Navbar = () => {
             aria-label="Toggle language"
             className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-full border border-primary/40"
           >
-            <span className={lang === "pt" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>PT</span>
-            <span className={scrolled ? "text-secondary-foreground/40" : "text-muted-foreground/40"}>/</span>
-            <span className={lang === "en" ? "text-primary" : scrolled ? "text-secondary-foreground/60" : "text-muted-foreground"}>EN</span>
+            <span className={lang === "pt" ? "text-primary" : "text-secondary-foreground/60"}>PT</span>
+            <span className="text-secondary-foreground/40">/</span>
+            <span className={lang === "en" ? "text-primary" : "text-secondary-foreground/60"}>EN</span>
           </button>
           <button
             className="text-primary"
