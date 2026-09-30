@@ -26,7 +26,7 @@ const copy = {
     eyebrow: "Elite Skincare Treatments",
     title1: "Revele a",
     titleGold: "melhor versão",
-    title3: "da sua pele.",
+    title3: "da sua pele",
     body: "Faciais avançados e de nível clínico, feitos para limpar profundamente, estimular colágeno e revelar instantaneamente uma pele radiante e jovial, personalizados para as necessidades únicas da sua pele.",
     stats: [
       { v: "9+", label: "Tratamentos faciais" },
@@ -39,7 +39,7 @@ const copy = {
     eyebrow: "Elite Skincare Treatments",
     title1: "Unveil your",
     titleGold: "best skin",
-    title3: "ever.",
+    title3: "ever",
     body: "Advanced, clinical-grade facials designed to deep-clean, boost collagen, and instantly reveal a radiant, youthful complexion, personalized to your skin's unique needs.",
     stats: [
       { v: "9+", label: "Facial treatments" },

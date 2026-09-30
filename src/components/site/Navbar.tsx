@@ -7,12 +7,14 @@ import logo from "@/assets/imagens/logo.png";
 
 const links = {
   pt: [
+    { href: "/", label: "Início" },
     { href: "/#servicos", label: "Destaques" },
     { href: "/services", label: "Todos os Serviços" },
     { href: "/#sobre", label: "Sobre" },
     { href: "/#contato", label: "Contato" },
   ],
   en: [
+    { href: "/", label: "Home" },
     { href: "/#servicos", label: "Highlights" },
     { href: "/services", label: "All Services" },
     { href: "/#sobre", label: "About" },
