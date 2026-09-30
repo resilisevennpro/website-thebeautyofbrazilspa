@@ -1,4 +1,4 @@
-import heroImg from "@/assets/imagens/christiane-portrait.png";
+import heroImg from "@/assets/imagens/christiane-portrait-2.jpeg";
 import { ArrowRight, Star, Sparkles } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";

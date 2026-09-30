@@ -1,4 +1,4 @@
-import portrait from "@/assets/imagens/christiane-portrait.png";
+import portrait from "@/assets/imagens/christiane-portrait-2.jpeg";
 import portrait2 from "@/assets/imagens/about-portrait.jpg";
 import { useLanguage } from "@/lib/language";
 
