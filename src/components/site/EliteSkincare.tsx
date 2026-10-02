@@ -53,7 +53,7 @@ const copy = {
 export const EliteSkincare = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang);
+  const whatsappLink = buildWhatsAppLink(lang, "skincare");
 
   return (
     <section id="skincare" className="pt-12 md:pt-16 pb-24 md:pb-32 relative overflow-hidden">

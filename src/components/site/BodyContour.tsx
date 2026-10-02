@@ -46,7 +46,7 @@ const copy = {
 export const BodyContour = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang);
+  const whatsappLink = buildWhatsAppLink(lang, "body-contour");
 
   return (
     <section id="contour" className="py-24 md:py-32 relative overflow-hidden bg-gradient-cream">
