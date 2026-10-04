@@ -1,6 +1,7 @@
 import { Instagram, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import { ONLINE_BOOKING_URL, useOnlineBookingCopy } from "@/lib/booking";
 import logo from "@/assets/imagens/logo.png";
 
 const copy = {
@@ -30,12 +31,26 @@ const copy = {
     hours: "Mon–Fri 9am–6pm · Sat 9am–4pm",
     rights: "All rights reserved",
   },
+  es: {
+    tagline: "Aesthetics SPA en Pembroke Pines, FL. Tratamientos de élite para la piel y el cuerpo con un toque brasileño.",
+    navTitle: "Navegación",
+    links: [
+      { href: "#servicos", label: "Servicios" },
+      { href: "#resultados", label: "Tratamientos" },
+      { href: "#sobre", label: "Sobre mí" },
+      { href: "#contato", label: "Contacto" },
+    ],
+    contactTitle: "Contacto",
+    hours: "Lun–Vie 9h–18h · Sáb 9h–16h",
+    rights: "Todos los derechos reservados",
+  },
 };
 
 export const Footer = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
   const whatsappLink = buildWhatsAppLink(lang);
+  const onlineCopy = useOnlineBookingCopy();
 
   return (
     <footer className="border-t border-primary/20 bg-secondary text-secondary-foreground py-14">
@@ -65,6 +80,9 @@ export const Footer = () => {
               <MessageCircle size={16} className="text-primary" />
             </a>
           </div>
+          <a href={ONLINE_BOOKING_URL} target="_blank" rel="noreferrer" className="mt-4 inline-block text-xs underline underline-offset-4 text-secondary-foreground/70 hover:text-primary transition-colors">
+            {onlineCopy.button}
+          </a>
           <p className="mt-4 text-xs text-secondary-foreground/70">11070 Pines Blvd Ste C-5</p>
           <p className="text-xs text-secondary-foreground/70">Pembroke Pines, FL 33025</p>
           <p className="mt-2 text-xs text-secondary-foreground/70">(954) 405-5414</p>

@@ -15,6 +15,12 @@ const services = {
     { icon: SparklesIcon, title: "Signature Glow Facial", desc: "Our luxury facial deeply cleanses, exfoliates, and uses advanced tech to instantly glow your skin." },
     { icon: Sun, title: "Anti-Aging Facial", desc: "Advanced technology to boost collagen, tighten skin, and smooth wrinkles for a youthful complexion." },
   ],
+  es: [
+    { icon: Flame, title: "Firming Radiofrequency", desc: "Calor de radiofrecuencia avanzada y drenaje al vacío para reducir la celulitis y firmar la piel al instante, sin tiempo de recuperación." },
+    { icon: Zap, title: "Body Contour Sculpt", desc: "Un servicio 3 en 1 con activación linfática, cavitación y radiofrecuencia para reducir grasa y contornear el cuerpo." },
+    { icon: SparklesIcon, title: "Signature Glow Facial", desc: "Nuestro facial de lujo limpia en profundidad, exfolia y usa tecnología avanzada para iluminar la piel al instante." },
+    { icon: Sun, title: "Anti-Aging Facial", desc: "Tecnología avanzada para estimular el colágeno, firmar la piel y suavizar arrugas, revelando una apariencia juvenil." },
+  ],
 };
 
 const copy = {
@@ -33,6 +39,14 @@ const copy = {
     body: "Whether you are targeting specific skin concerns or sculpting your silhouette, each service is custom-crafted by Christiane to deliver visible, confidence-boosting results alongside deep relaxation.",
     cta: "Book now",
     allServices: "See all treatments",
+  },
+  es: {
+    eyebrow: "Algunos de nuestros mejores tratamientos",
+    title1: "Descubra su",
+    titleGold: "brillo exclusivo",
+    body: "Ya sea para tratar preocupaciones específicas de la piel o para esculpir su silueta, cada servicio se realiza a medida por Christiane para ofrecer resultados visibles que elevan su confianza y brindan una relajación profunda.",
+    cta: "Reservar ahora",
+    allServices: "Ver todos los tratamientos",
   },
 };
 

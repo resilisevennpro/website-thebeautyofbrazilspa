@@ -4,7 +4,8 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { buildWhatsAppLink, type MessageCategory } from "@/lib/whatsapp";
-import { useLanguage } from "@/lib/language";
+import { ONLINE_BOOKING_URL, useOnlineBookingCopy } from "@/lib/booking";
+import { useLanguage, type Lang } from "@/lib/language";
 import { ArrowRight, Calendar, Info, MessageCircle, Sparkles, Wand2 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import glowImg from "@/assets/imagens/service-signature-glow.webp";
@@ -29,6 +30,10 @@ const metaCopy = {
     title: "All Services | The Beauty of Brazil Aesthetics SPA",
     description: "Explore every facial and body contour treatment at The Beauty of Brazil Aesthetics SPA in Pembroke Pines, FL.",
   },
+  es: {
+    title: "Todos los Servicios | The Beauty of Brazil Aesthetics SPA",
+    description: "Conozca todos los tratamientos faciales y de contorno corporal de The Beauty of Brazil Aesthetics SPA en Pembroke Pines, FL.",
+  },
 };
 
 type Treatment = {
@@ -40,7 +45,7 @@ type Treatment = {
   category: MessageCategory;
 };
 
-const skincare: Record<"pt" | "en", Treatment[]> = {
+const skincare: Record<Lang, Treatment[]> = {
   pt: [
     { title: "Signature Glow Facial", tag: "Hidratação & Brilho", img: glowImg, desc: "Facial de limpeza profunda com terapia a vácuo e alta frequência, finalizado com máscara hidratante para uma pele equilibrada e radiante.", fullDesc: "Nosso facial de luxo exclusivo é feito para revitalizar e iluminar a pele instantaneamente. O tratamento começa com uma limpeza profunda potencializada por vapor suave para abrir os poros e preparar a pele para resultados ideais. Uma esfoliação delicada e eficaz suaviza a textura e refina a aparência dos poros, seguida de terapia a vácuo facial para estimular a circulação. Em seguida, aplicamos tecnologia de alta frequência para energizar a pele com benefícios purificantes e antibacterianos. A experiência é finalizada com uma máscara hidratante personalizada, deixando a pele equilibrada, radiante e renovada.", category: "skincare" },
     { title: "Diamond Radiance Facial", tag: "Renovação da Pele", img: diamondRadianceImg, desc: "Tratamento de renovação com esfoliação de diamante, tecnologia de ultrassom e sérum nutritivo para uma pele mais lisa e radiante.", fullDesc: "Esse tratamento de renovação é feito para promover limpeza profunda e revitalização da pele. Começa com uma limpeza purificante e vapor suave para abrir os poros, seguido de esfoliação com diamante para remover células mortas e revelar uma pele mais lisa e radiante. O tratamento inclui tecnologia de ultrassom para acalmar a pele, um sérum nutritivo para hidratação, e o que há de melhor em nutrição para a saúde da pele. Finaliza com uma máscara ultra-hidratante que completa o efeito radiante.", category: "skincare" },
@@ -63,9 +68,20 @@ const skincare: Record<"pt" | "en", Treatment[]> = {
     { title: "Brighten & Glow Peel", tag: "Pigmentation & Tone", img: peelImg, desc: "A resurfacing peel that targets hyperpigmentation and sun damage, revealing a smoother, more even complexion.", fullDesc: "Brighten & Glow Peel is an advanced resurfacing treatment that effectively targets hyperpigmentation, sun damage, and uneven skin tone. This gentle peel exfoliates dull skin, fades dark spots, and enhances clarity, resulting in a smoother, radiant complexion with a healthy, even glow. Various peels are available depending on your skin type.", category: "skincare" },
     { title: "Nano Infusion Facial", tag: "Hydration & Texture", img: nanoInfusionImg, desc: "Uses nano-needling technology to deliver specialized serums and antioxidants, improving hydration and texture with no downtime.", fullDesc: "One of our most popular non-invasive treatments, using nano-needling technology to create microchannels in the skin to deliver specialized serums, antioxidants, and cell regeneration complexes tailored to your skin's unique needs. This infusion process helps improve hydration, refine texture, soften the appearance of fine lines, and promote a healthy, luminous glow with no downtime. Ideal for all skin types, including sensitive skin, and can be paired with the Signature Glow Facial for optimal results.", category: "skincare" },
   ],
+  es: [
+    { title: "Signature Glow Facial", tag: "Hidratación & Brillo", img: glowImg, category: "skincare", desc: "Facial de limpieza profunda con terapia al vacío y alta frecuencia, finalizado con mascarilla hidratante para una piel equilibrada y radiante.", fullDesc: "Nuestro facial de lujo exclusivo está diseñado para revitalizar e iluminar la piel al instante. El tratamiento comienza con una limpieza profunda potenciada por vapor suave para abrir los poros y preparar la piel para obtener resultados óptimos. Una exfoliación delicada y eficaz suaviza la textura y refina la apariencia de los poros, seguida de terapia facial al vacío para estimular la circulación. Después aplicamos tecnología de alta frecuencia para energizar la piel con beneficios purificantes y antibacterianos. La experiencia concluye con una mascarilla hidratante personalizada, dejando la piel equilibrada, radiante y renovada." },
+    { title: "Diamond Radiance Facial", tag: "Renovación de la Piel", img: diamondRadianceImg, category: "skincare", desc: "Tratamiento de renovación con exfoliación de diamante, tecnología de ultrasonido y sérum nutritivo para una piel más lisa y radiante.", fullDesc: "Este tratamiento de renovación está diseñado para ofrecer limpieza profunda y renovación de la piel. Comienza con una limpieza purificante y vapor suave para abrir los poros, seguida de exfoliación con diamante para eliminar células muertas y revelar un cutis más liso y radiante. Incluye tecnología de ultrasonido para calmar la piel y un sérum nutritivo para la hidratación, y se sella con una mascarilla ultrahidratante que completa el aspecto radiante de su piel." },
+    { title: "Collagen Renewal Facial", tag: "Antienvejecimiento", img: collagenRenewalImg, category: "skincare", desc: "Facial antienvejecimiento que combina limpieza profunda, sérums potenciados por ultrasonido y crioterapia para lifting, hidratación y suavizado de líneas finas.", fullDesc: "Este facial de lujo antienvejecimiento está diseñado para limpiar, firmar, suavizar y restaurar la radiancia juvenil de la piel. El tratamiento avanzado que estimula el colágeno combina limpieza profunda y exfoliación refinada con nuestros cuidados antienvejecimiento exclusivos, potenciados por ultrasonido para mejorar la penetración de los sérums elegidos para su tipo de piel. Concluye con una crioterapia refrescante y una mascarilla de regeneración con células madre, dejando la piel visiblemente más firme, hidratada y luminosa. Ideal para mejorar la elasticidad, suavizar líneas finas y unificar el tono y la textura de la piel." },
+    { title: "Radiofrequency Anti-Aging Facial", tag: "Antienvejecimiento", img: antiAgingImg, category: "skincare", desc: "Usa tecnología de radiofrecuencia para estimular la producción de colágeno, firmar la piel y reducir líneas finas y arrugas.", fullDesc: "El Radiofrequency Anti-Aging Facial utiliza tecnología avanzada de radiofrecuencia para estimular la producción de colágeno, firmando la piel y reduciendo la apariencia de líneas finas y arrugas. Es un tratamiento no invasivo que aporta un brillo juvenil, mejorando la textura y la firmeza de la piel." },
+    { title: "Clarifying Acne Facial", tag: "Piel Grasa & Acné", img: clarifyingAcneImg, category: "skincare", desc: "Tratamiento dirigido a la piel grasa y con tendencia al acné, con extracciones, alta frecuencia y mascarilla calmante para reducir la inflamación.", fullDesc: "Nuestro tratamiento dirigido a la piel grasa y con tendencia al acné limpia en profundidad, exfolia y despeja los poros congestionados. Incluye extracciones, alta frecuencia y nuestra mascarilla calmante exclusiva para reducir la inflamación y controlar el exceso de grasa. Es uno de los tratamientos más solicitados por nuestras clientas con piel propensa al acné." },
+    { title: "Microcurrent Sculpt Facial", tag: "Lifting Facial", img: microcurrentSculptImg, category: "skincare", desc: "Tratamiento no invasivo que usa microcorriente para tonificar los músculos faciales, con un efecto lifting y esculpido.", fullDesc: "Tratamiento no invasivo de firmeza cutánea diseñado para tonificar y definir los contornos naturales de su rostro. Con tecnología de microcorriente, este facial estimula los músculos faciales mediante pequeñas contracciones, mejorando el contorno del rostro y la firmeza de la piel y proporcionando un efecto lifting. Notará un aspecto más levantado, renovado y esculpido, sin tiempo de recuperación." },
+    { title: "Back Detox Facial", tag: "Limpieza Profunda", img: backDetoxImg, category: "skincare", desc: "Tratamiento de limpieza profunda para la espalda, que combina exfoliación, extracciones y alta frecuencia para una piel limpia y renovada.", fullDesc: "El Back Detox Facial es un tratamiento completo que limpia en profundidad la espalda para tratar granitos y congestión. Este servicio incluye exfoliación, extracciones, terapia de alta frecuencia con beneficios antibacterianos y finaliza con una mascarilla purificante para el acné, garantizando una piel lisa, limpia y renovada." },
+    { title: "Brighten & Glow Peel", tag: "Manchas & Uniformidad", img: peelImg, category: "skincare", desc: "Peeling renovador que trata la hiperpigmentación y los daños solares, revelando una piel más lisa y uniforme.", fullDesc: "El Brighten & Glow Peel es un tratamiento renovador avanzado que trata de forma eficaz la hiperpigmentación, los daños solares y el tono desigual de la piel. Este peeling suave exfolia la piel apagada, aclara las manchas oscuras y mejora la luminosidad, dando como resultado una piel más lisa y radiante, con un brillo saludable y uniforme. Hay distintos peelings disponibles según su tipo de piel." },
+    { title: "Nano Infusion Facial", tag: "Hidratación & Textura", img: nanoInfusionImg, category: "skincare", desc: "Usa tecnología de nano-agujas para infundir sérums especializados y antioxidantes, mejorando la hidratación y la textura sin tiempo de recuperación.", fullDesc: "Uno de nuestros tratamientos no invasivos más solicitados, que usa tecnología de nano-agujas para crear microcanales en la piel e infundir sérums especializados, antioxidantes y complejos de regeneración celular adaptados a las necesidades únicas de su piel. Este proceso ayuda a mejorar la hidratación, refinar la textura, suavizar la apariencia de las líneas finas y promover un brillo saludable y luminoso, sin tiempo de recuperación. Ideal para todo tipo de piel, incluida la sensible, y puede combinarse con el Signature Glow Facial para obtener resultados aún mejores." },
+  ],
 };
 
-const bodyContour: Record<"pt" | "en", Treatment[]> = {
+const bodyContour: Record<Lang, Treatment[]> = {
   pt: [
     { title: "Body Contour Sculpt Treatment", tag: "Redução de Gordura", img: sculptImg, desc: "Serviço exclusivo 3 em 1 que combina ativação linfática, cavitação e radiofrequência para redução de gordura e firmamento da pele.", fullDesc: "O Body Contour Sculpt Treatment é um serviço exclusivo 3 em 1 que ativa o sistema linfático, utiliza cavitação e emprega tecnologia de radiofrequência para redução eficaz de gordura e firmamento da pele. O tratamento é finalizado com a aplicação de um creme emagrecedor especializado para potencializar os resultados e promover um contorno mais definido.", category: "body-contour" },
     { title: "Contour & Define Body Treatment", tag: "Contorno Corporal", img: contourDefineImg, desc: "Nosso método brasileiro 4 em 1 que combina ativação linfática, cavitação, radiofrequência e terapia a vácuo para o contorno corporal definitivo.", fullDesc: "Esse tratamento combina nossas tecnologias emagrecedoras definitivas em nosso método brasileiro 4 em 1, que incorpora ativação do sistema linfático, cavitação e radiofrequência, finalizado com tecnologia a vácuo para o contorno corporal definitivo. É feito para reduzir gordura localizada, firmar a pele solta e ajudar na redução de celulite, usando nossa técnica brasileira certificada. Bônus: inclui envolvimento corporal (body wrap) ao final do tratamento por tempo limitado. Recomendado em pacotes de 6 sessões para melhores resultados.", category: "body-contour" },
@@ -75,6 +91,11 @@ const bodyContour: Record<"pt" | "en", Treatment[]> = {
     { title: "Body Contour Sculpt Treatment", tag: "Fat Reduction", img: sculptImg, desc: "A signature 3-in-1 service combining lymphatic activation, cavitation, and radiofrequency for fat reduction and skin tightening.", fullDesc: "Body Contour Sculpt Treatment is a signature 3-in-1 service that activates the lymphatic system, utilizes cavitation, and employs radiofrequency technology for effective fat reduction and skin tightening. The treatment concludes with the application of our specialized slimming cream to enhance results and promote a more contoured appearance.", category: "body-contour" },
     { title: "Contour & Define Body Treatment", tag: "Body Contouring", img: contourDefineImg, desc: "Our Brazilian 4-in-1 method combining lymphatic activation, cavitation, radiofrequency, and vacuum therapy for the ultimate body sculpting.", fullDesc: "This treatment combines our ultimate slimming technologies in our 4-in-1 Brazilian method, incorporating activation of the lymphatic system, cavitation, and radiofrequency, finished off with vacuum technology for the ultimate body sculpting treatment. It's designed to reduce stubborn fat, tighten loose skin, and aid in the reduction of cellulite and toning, using our Brazilian certified technique. Bonus: includes a body wrap at the end of treatment for a limited time. Recommended in packages of 6 sessions for optimal results.", category: "body-contour" },
     { title: "Firming Radiofrequency Treatment", tag: "Skin Firming", img: firmingImg, desc: "Advanced RF energy tightens and tones skin while reducing the appearance of cellulite, completed with vacuum therapy drainage.", fullDesc: "Firming Radiofrequency Treatment utilizes advanced RF energy to generate heat within the skin, effectively tightening and toning while reducing the appearance of cellulite. This non-invasive procedure requires no downtime, allowing clients to enjoy smoother, firmer skin. Our treatment is completed with our Vacuum Therapy drainage to further break down fat and enhance contouring.", category: "body-contour" },
+  ],
+  es: [
+    { title: "Body Contour Sculpt Treatment", tag: "Reducción de Grasa", img: sculptImg, category: "body-contour", desc: "Servicio exclusivo 3 en 1 que combina activación linfática, cavitación y radiofrecuencia para reducir la grasa y firmar la piel.", fullDesc: "El Body Contour Sculpt Treatment es un servicio exclusivo 3 en 1 que activa el sistema linfático, utiliza cavitación y emplea tecnología de radiofrecuencia para reducir eficazmente la grasa y firmar la piel. El tratamiento concluye con la aplicación de una crema reductora especializada para potenciar los resultados y lograr un contorno más definido." },
+    { title: "Contour & Define Body Treatment", tag: "Contorno Corporal", img: contourDefineImg, category: "body-contour", desc: "Nuestro método brasileño 4 en 1 que combina activación linfática, cavitación, radiofrecuencia y terapia al vacío para el contorno corporal definitivo.", fullDesc: "Este tratamiento combina nuestras tecnologías reductoras más avanzadas en nuestro método brasileño 4 en 1, que incorpora activación del sistema linfático, cavitación y radiofrecuencia, y se completa con tecnología al vacío para lograr el contorno corporal definitivo. Está diseñado para reducir la grasa localizada, reafirmar la piel flácida y ayudar a reducir la celulitis y tonificar, usando nuestra técnica brasileña certificada. Bono: incluye envoltura corporal al final del tratamiento por tiempo limitado. Recomendado en paquetes de 6 sesiones para obtener mejores resultados." },
+    { title: "Firming Radiofrequency Treatment", tag: "Firmeza de la Piel", img: firmingImg, category: "body-contour", desc: "Energía avanzada de RF que firma y tonifica la piel mientras reduce la apariencia de celulitis, finalizado con drenaje por terapia al vacío.", fullDesc: "El Firming Radiofrequency Treatment utiliza energía avanzada de RF para generar calor en la piel, firmándola y tonificándola mientras reduce la apariencia de celulitis. Es un procedimiento no invasivo, sin tiempo de recuperación, que le permite disfrutar de una piel más lisa y firme. El tratamiento se completa con drenaje mediante terapia al vacío para descomponer aún más la grasa y mejorar el contorno." },
   ],
 };
 
@@ -88,6 +109,11 @@ const firstTimeSteps = {
     { n: "01", icon: Calendar, title: "Message us on WhatsApp", desc: "Tell us what you're looking for and we'll help you choose the right treatment." },
     { n: "02", icon: Wand2, title: "Personalized consultation", desc: "Christiane evaluates your skin or body goals before getting started." },
     { n: "03", icon: Sparkles, title: "Your first treatment", desc: "A personalized session, no package commitment required for your first visit." },
+  ],
+  es: [
+    { n: "01", icon: Calendar, title: "Escríbanos por WhatsApp", desc: "Cuéntenos qué busca y le ayudaremos a elegir el tratamiento adecuado." },
+    { n: "02", icon: Wand2, title: "Consulta personalizada", desc: "Christiane evalúa su piel o sus objetivos corporales antes de empezar." },
+    { n: "03", icon: Sparkles, title: "Su primer tratamiento", desc: "Una sesión personalizada, sin compromiso de paquete para su primera visita." },
   ],
 };
 
@@ -122,6 +148,21 @@ const copy = {
     firstTimeTitle: "How your first visit works",
     modalCta: "Book on WhatsApp",
   },
+  es: {
+    eyebrow: "Nuestros Tratamientos",
+    title1: "Todos los",
+    titleGold: "servicios",
+    body: "Desde el skincare clínico hasta el contorno corporal, cada tratamiento es personalizado por Christiane para ofrecer resultados visibles y una experiencia relajante.",
+    skincareTitle: "Elite Skincare Treatments",
+    bodyTitle: "Body Contour Treatments",
+    cta: "Reservar",
+    details: "Ver detalles",
+    ctaFinal: "¿No sabe qué tratamiento es ideal para usted?",
+    ctaFinalBtn: "Hable con nosotros por WhatsApp",
+    firstTimeEyebrow: "¿Es su primera vez aquí?",
+    firstTimeTitle: "Cómo funciona su primera visita",
+    modalCta: "Reservar por WhatsApp",
+  },
 };
 
 const Services = () => {
@@ -129,6 +170,7 @@ const Services = () => {
   usePageMeta(metaCopy);
   const { lang } = useLanguage();
   const t = copy[lang];
+  const onlineCopy = useOnlineBookingCopy();
   const skincareWhatsappLink = buildWhatsAppLink(lang, "skincare");
   const bodyContourWhatsappLink = buildWhatsAppLink(lang, "body-contour");
   const generalWhatsappLink = buildWhatsAppLink(lang, "general");
@@ -265,6 +307,16 @@ const Services = () => {
             >
               <MessageCircle size={18} /> {t.ctaFinalBtn}
             </a>
+            <div className="mt-8">
+              <p className="text-sm text-secondary-foreground/70">{onlineCopy.question}</p>
+              <a
+                href={ONLINE_BOOKING_URL}
+                target="_blank" rel="noreferrer"
+                className="mt-3 inline-flex items-center gap-2 border border-primary/40 text-primary px-5 py-2.5 rounded-full font-medium hover:bg-primary/10 transition-all"
+              >
+                {onlineCopy.button}
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -293,6 +345,13 @@ const Services = () => {
                 className="inline-flex items-center justify-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-6 py-3 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
               >
                 <MessageCircle size={16} /> {t.modalCta}
+              </a>
+              <a
+                href={ONLINE_BOOKING_URL}
+                target="_blank" rel="noreferrer"
+                className="text-center text-sm font-medium text-secondary hover:text-primary transition-colors underline underline-offset-4"
+              >
+                {onlineCopy.button}
               </a>
             </>
           )}

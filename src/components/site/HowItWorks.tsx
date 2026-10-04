@@ -27,6 +27,18 @@ const copy = {
     footer: "Ready to transform your skin? Call or text us to schedule your custom session.",
     cta: "Book my appointment",
   },
+  es: {
+    eyebrow: "Proceso",
+    title1: "El camino de su piel hacia la",
+    titleGold: "perfección",
+    steps: [
+      { n: "01", icon: Calendar, title: "Reserve su sesión", desc: "Llame o envíe un mensaje por WhatsApp para reservar su horario en The Beauty of Brazil SPA." },
+      { n: "02", icon: Wand2, title: "Consulta personalizada", desc: "Christiane evalúa su piel y sus objetivos para recomendarle el tratamiento ideal para usted." },
+      { n: "03", icon: Sparkles, title: "Su brillo, a su medida", desc: "Tratamientos no invasivos y de alto rendimiento, con resultados visibles y radiantes." },
+    ],
+    footer: "¿Lista para transformar su piel? Llámenos o escríbanos para programar su sesión personalizada.",
+    cta: "Reservar mi cita",
+  },
 };
 
 export const HowItWorks = () => {

@@ -18,6 +18,14 @@ const items = {
     "Brazilian Technique",
     "Zero Downtime",
   ],
+  es: [
+    "Esteticista Licenciada",
+    "Elite Skincare",
+    "Body Contour",
+    "Pembroke Pines, FL",
+    "Técnica Brasileña",
+    "Sin Tiempo de Recuperación",
+  ],
 };
 
 export const TrustBar = () => {

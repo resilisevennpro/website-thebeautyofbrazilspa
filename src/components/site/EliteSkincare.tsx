@@ -19,6 +19,12 @@ const gallery = {
     { src: g4, label: "Nano Infusion", caption: "Nano-needling technology", span: "aspect-[4/5]" },
     { src: g3, label: "Diamond Radiance", caption: "Diamond exfoliation", span: "aspect-[4/5]" },
   ],
+  es: [
+    { src: g2, label: "Signature Glow Facial", caption: "Limpieza profunda y radiancia", span: "md:col-span-2 md:row-span-2 aspect-[4/5]" },
+    { src: g1, label: "Elite Skincare", caption: "Faciales de nivel clínico", span: "aspect-square" },
+    { src: g4, label: "Nano Infusion", caption: "Tecnología de nano-agujas", span: "aspect-[4/5]" },
+    { src: g3, label: "Diamond Radiance", caption: "Exfoliación con diamante", span: "aspect-[4/5]" },
+  ],
 };
 
 const copy = {
@@ -47,6 +53,19 @@ const copy = {
       { v: "100%", label: "Personalized" },
     ],
     cta: "Book my facial",
+  },
+  es: {
+    eyebrow: "Tratamientos Elite de Skincare",
+    title1: "Revele su",
+    titleGold: "mejor versión",
+    title3: "de la piel",
+    body: "Faciales avanzados de nivel clínico, diseñados para limpiar en profundidad, estimular el colágeno y revelar al instante una piel radiante y juvenil, personalizados para las necesidades únicas de su piel.",
+    stats: [
+      { v: "9+", label: "Tratamientos faciales" },
+      { v: "0", label: "Tiempo de recuperación" },
+      { v: "100%", label: "Personalizado" },
+    ],
+    cta: "Reservar mi facial",
   },
 };
 

@@ -18,6 +18,12 @@ const treatments = {
     { img: firmingRf, label: "Firming Radiofrequency" },
     { img: antiAging, label: "Radiofrequency Anti-Aging" },
   ],
+  es: [
+    { img: glow, label: "Signature Glow Facial" },
+    { img: sculpt, label: "Body Contour Sculpt" },
+    { img: firmingRf, label: "Firming Radiofrequency" },
+    { img: antiAging, label: "Radiofrequency Anti-Aging" },
+  ],
 };
 
 const copy = {
@@ -34,6 +40,13 @@ const copy = {
     titleGold: "visible results",
     body: "High-performance treatments designed to transform your skin and reshape your silhouette, pairing clinical skincare technologies with targeted body contouring solutions.",
     cta: "Click here to book your appointment →",
+  },
+  es: {
+    eyebrow: "Servicios Estéticos Avanzados",
+    title1: "Tratamientos no invasivos,",
+    titleGold: "resultados visibles",
+    body: "Tratamientos de alto rendimiento diseñados para transformar su piel y remodelar su silueta, combinando tecnologías clínicas de skincare con soluciones dirigidas de contorno corporal.",
+    cta: "Haga clic aquí para reservar su cita →",
   },
 };
 

@@ -23,6 +23,10 @@ const metaCopy = {
     title: "The Beauty of Brazil Aesthetics SPA | Pembroke Pines, FL",
     description: "Elite skincare and body contour treatments in Pembroke Pines, FL. Indulge in the ultimate Brazilian glow experience with Christiane Roberts.",
   },
+  es: {
+    title: "The Beauty of Brazil Aesthetics SPA | Pembroke Pines, FL",
+    description: "Tratamientos de élite de skincare y contorno corporal en Pembroke Pines, FL. Disfrute de la experiencia definitiva del brillo brasileño con Christiane Roberts.",
+  },
 };
 
 const Index = () => {

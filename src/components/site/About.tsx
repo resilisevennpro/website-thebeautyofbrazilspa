@@ -23,6 +23,16 @@ const copy = {
     licenseTitle: "Trusted Professional",
     licenseSub: "Certified Brazilian Technique",
   },
+  es: {
+    eyebrow: "Conozca a la fundadora",
+    name1: "Christiane",
+    name2: "Roberts",
+    p1: "Durante muchos años, Christiane construyó su carrera en gestión administrativa y financiera, desarrollando sólidas habilidades de organización, liderazgo y atención al cliente. Aunque valoraba mucho esa experiencia, siempre se sintió atraída por la industria de la belleza y el bienestar, y soñaba con ayudar a las personas a sentirse seguras de sí mismas.",
+    p2: "Esa pasión impulsó un cambio de carrera que transformó su vida. Estudió Estética en Florida, completó su formación profesional y obtuvo su Licencia de Esteticista de Florida. Hoy combina su formación empresarial con su dedicación al skincare y al bienestar corporal, con especialización en un cuidado excepcional, resultados visibles y una experiencia relajante que fortalece la confianza y el bienestar.",
+    quote: "Para mí, la estética es más que una profesión; es una verdadera pasión. Ayudar a las personas a verse y sentirse bien es la parte más gratificante de mi camino.",
+    licenseTitle: "Profesional de Confianza",
+    licenseSub: "Técnica Brasileña Certificada",
+  },
 };
 
 export const About = () => {

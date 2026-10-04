@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
-import { useLanguage } from "@/lib/language";
+import { useLanguage, type Lang } from "@/lib/language";
+import { ONLINE_BOOKING_URL, useOnlineBookingCopy } from "@/lib/booking";
 import logo from "@/assets/imagens/logo.png";
 
-const links = {
+const links: Record<Lang, { href: string; label: string }[]> = {
   pt: [
     { href: "/", label: "Início" },
     { href: "/#servicos", label: "Destaques" },
@@ -20,14 +21,52 @@ const links = {
     { href: "/#sobre", label: "About" },
     { href: "/#contato", label: "Contact" },
   ],
+  es: [
+    { href: "/", label: "Inicio" },
+    { href: "/#servicos", label: "Destacados" },
+    { href: "/services", label: "Todos los Servicios" },
+    { href: "/#sobre", label: "Sobre mí" },
+    { href: "/#contato", label: "Contacto" },
+  ],
 };
 
-const bookLabel = { pt: "Agendar Agora", en: "Book Now" };
+const bookLabel: Record<Lang, string> = { pt: "Agendar Agora", en: "Book Now", es: "Reservar Ahora" };
+
+const languages: { code: Lang; label: string }[] = [
+  { code: "pt", label: "PT" },
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
+];
+
+const LanguageToggle = ({ compact = false }: { compact?: boolean }) => {
+  const { lang, setLang } = useLanguage();
+  return (
+    <div
+      role="group"
+      aria-label="Language"
+      className={`inline-flex items-center gap-1 rounded-full border border-primary/40 ${compact ? "text-xs px-2 py-1" : "text-xs font-medium px-3 py-2"}`}
+    >
+      {languages.map((l, i) => (
+        <span key={l.code} className="inline-flex items-center gap-1">
+          {i > 0 && <span className="text-secondary-foreground/40">/</span>}
+          <button
+            onClick={() => setLang(l.code)}
+            aria-pressed={lang === l.code}
+            className={`transition-colors ${lang === l.code ? "text-primary font-semibold" : "text-secondary-foreground/60 hover:text-primary"}`}
+          >
+            {l.label}
+          </button>
+        </span>
+      ))}
+    </div>
+  );
+};
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { lang, toggleLang } = useLanguage();
+  const { lang } = useLanguage();
   const whatsappLink = buildWhatsAppLink(lang);
+  const onlineCopy = useOnlineBookingCopy();
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-secondary/95 backdrop-blur-xl border-b border-primary/20 py-3 shadow-card-luxe">
@@ -49,15 +88,7 @@ export const Navbar = () => {
           ))}
         </ul>
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={toggleLang}
-            aria-label="Toggle language"
-            className="inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-full border border-primary/40 transition-all hover:bg-primary/10"
-          >
-            <span className={lang === "pt" ? "text-primary" : "text-secondary-foreground/60"}>PT</span>
-            <span className="text-secondary-foreground/40">/</span>
-            <span className={lang === "en" ? "text-primary" : "text-secondary-foreground/60"}>EN</span>
-          </button>
+          <LanguageToggle />
           <a
             href={whatsappLink}
             target="_blank" rel="noreferrer"
@@ -67,15 +98,7 @@ export const Navbar = () => {
           </a>
         </div>
         <div className="flex items-center gap-3 md:hidden">
-          <button
-            onClick={toggleLang}
-            aria-label="Toggle language"
-            className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-full border border-primary/40"
-          >
-            <span className={lang === "pt" ? "text-primary" : "text-secondary-foreground/60"}>PT</span>
-            <span className="text-secondary-foreground/40">/</span>
-            <span className={lang === "en" ? "text-primary" : "text-secondary-foreground/60"}>EN</span>
-          </button>
+          <LanguageToggle compact />
           <button
             className="text-primary"
             onClick={() => setOpen((o) => !o)}
@@ -94,6 +117,9 @@ export const Navbar = () => {
           ))}
           <a href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center">
             {bookLabel[lang]}
+          </a>
+          <a href={ONLINE_BOOKING_URL} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="border border-primary/40 text-secondary-foreground font-medium px-5 py-2.5 rounded-full text-center">
+            {onlineCopy.button}
           </a>
         </div>
       )}

@@ -15,6 +15,12 @@ const copy = {
     body: "See our latest treatments, transformations, and behind-the-scenes on Instagram.",
     cta: "View our profile",
   },
+  es: {
+    title1: "Síganos en nuestras",
+    titleGold: "redes sociales",
+    body: "Descubra nuestros tratamientos más recientes, transformaciones y momentos detrás de cámaras en Instagram.",
+    cta: "Ver nuestro perfil",
+  },
 };
 
 export const InstagramFeed = () => {

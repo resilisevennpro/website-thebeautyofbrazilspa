@@ -28,6 +28,18 @@ const copy = {
     badgeSub: "Christiane Roberts",
     ratingLabel: "Book Now",
   },
+  es: {
+    eyebrow: "Aesthetics Spa · Pembroke Pines, FL",
+    title1: "Donde la Belleza Brasileña",
+    titleGold: "Se Encuentra con la Estética de Lujo",
+    subtitle:
+      "The Beauty of Brazil SPA combina skincare clínico avanzado con tratamientos corporales personalizados y de lujo. Ofrecemos resultados visibles y radiantes para realzar su belleza natural y su confianza.",
+    ctaPrimary: "Reserve su Cita",
+    ctaSecondary: "Ver Tratamientos",
+    badgeTitle: "Licencia de Esteticista de Florida",
+    badgeSub: "Christiane Roberts",
+    ratingLabel: "Reservar Ahora",
+  },
 };
 
 export const Hero = () => {

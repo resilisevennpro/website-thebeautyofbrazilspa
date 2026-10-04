@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import { ONLINE_BOOKING_URL, useOnlineBookingCopy } from "@/lib/booking";
 
 const copy = {
   pt: {
@@ -19,11 +20,20 @@ const copy = {
     callTitle: "Call or Text",
     cta: "Book Your Appointment",
   },
+  es: {
+    eyebrow: "Hablemos",
+    title1: "¿Lista para transformar su",
+    titleGold: "piel?",
+    body: "Haga clic abajo para escribirnos por WhatsApp, o llámenos al (954) 405-5414 para programar su sesión personalizada.",
+    callTitle: "Llame o Envíe un Mensaje",
+    cta: "Reserve Su Cita",
+  },
 };
 
 export const BookingCTA = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const onlineCopy = useOnlineBookingCopy();
   const whatsappLink = buildWhatsAppLink(lang);
 
   return (
@@ -58,6 +68,16 @@ export const BookingCTA = () => {
               <MessageCircle size={18} /> {t.cta}
             </span>
           </a>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">{onlineCopy.question}</p>
+            <a
+              href={ONLINE_BOOKING_URL}
+              target="_blank" rel="noreferrer"
+              className="mt-3 inline-flex items-center gap-2 border border-secondary/40 text-secondary px-5 py-2.5 rounded-full font-medium hover:bg-secondary/10 transition-all"
+            >
+              {onlineCopy.button}
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -1,13 +1,15 @@
 import { useEffect } from "react";
-import { useLanguage } from "@/lib/language";
+import { useLanguage, type Lang } from "@/lib/language";
 
 type MetaCopy = { title: string; description: string };
 
-export const usePageMeta = (copy: Record<"pt" | "en", MetaCopy>) => {
+const htmlLang: Record<Lang, string> = { pt: "pt-BR", en: "en", es: "es" };
+
+export const usePageMeta = (copy: Record<Lang, MetaCopy>) => {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+    document.documentElement.lang = htmlLang[lang];
     document.title = copy[lang].title;
     const meta =
       document.querySelector('meta[name="description"]') ||

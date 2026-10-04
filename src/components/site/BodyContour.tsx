@@ -41,6 +41,24 @@ const copy = {
     ],
     cta: "Book my body contour session",
   },
+  es: {
+    eyebrow: "Tratamientos de Contorno Corporal",
+    title1: "Silueta esculpida,",
+    titleGold: "sin tiempo de recuperación",
+    body: "Terapias no invasivas de alto rendimiento, diseñadas para reducir la grasa localizada, tratar la celulitis y firmar la piel flácida, con nuestra técnica brasileña certificada 4 en 1.",
+    imgLabel1: "Body Contour Sculpt",
+    imgLabel2: "Firming RF",
+    calloutTitle: "Técnica exclusiva",
+    calloutSub: "Método brasileño 4 en 1",
+    calloutDesc: "Activación linfática, cavitación, RF y terapia al vacío",
+    items: [
+      "Activación linfática y cavitación",
+      "Firmeza de la piel con radiofrecuencia",
+      "Terapia al vacío para el contorno",
+      "Recomendado en paquetes de 6 sesiones",
+    ],
+    cta: "Reservar mi sesión de contorno corporal",
+  },
 };
 
 export const BodyContour = () => {
