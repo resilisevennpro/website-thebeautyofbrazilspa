@@ -1,5 +1,6 @@
-import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { useState } from "react";
 import { useLanguage } from "@/lib/language";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import glow from "@/assets/imagens/service-signature-glow.webp";
 import sculpt from "@/assets/imagens/service-body-contour-sculpt.jpg";
 import firmingRf from "@/assets/imagens/service-firming-rf.jpeg";
@@ -53,7 +54,7 @@ const copy = {
 export const BeforeAfter = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang);
+  const [bookOpen, setBookOpen] = useState(false);
 
   return (
     <section id="resultados" className="pt-12 md:pt-16 pb-12 md:pb-16 relative">
@@ -84,15 +85,16 @@ export const BeforeAfter = () => {
         </div>
 
         <div className="mt-12 text-center reveal">
-          <a
-            href={whatsappLink}
-            target="_blank" rel="noreferrer"
+          <button
+            onClick={() => setBookOpen(true)}
             className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground font-medium px-7 py-3.5 rounded-full shadow-luxe hover:-translate-y-0.5 hover:gap-3 transition-all"
           >
             {t.cta}
-          </a>
+          </button>
         </div>
       </div>
+
+      <BookingChoiceDialog open={bookOpen} onOpenChange={setBookOpen} />
     </section>
   );
 };

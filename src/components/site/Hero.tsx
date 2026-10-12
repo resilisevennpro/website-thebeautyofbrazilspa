@@ -1,7 +1,8 @@
+import { useState } from "react";
 import heroImg from "@/assets/imagens/christiane-portrait-2.jpeg";
 import { ArrowRight, Star, Sparkles } from "lucide-react";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 
 const copy = {
   pt: {
@@ -45,7 +46,7 @@ const copy = {
 export const Hero = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang);
+  const [bookOpen, setBookOpen] = useState(false);
 
   return (
     <section className="relative grain min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
@@ -74,14 +75,13 @@ export const Hero = () => {
             {t.subtitle}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <a
-              href={whatsappLink}
-              target="_blank" rel="noreferrer"
+            <button
+              onClick={() => setBookOpen(true)}
               className="shimmer group inline-flex items-center justify-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-7 py-4 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
             >
               {t.ctaPrimary}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
             <a
               href="#servicos"
               className="inline-flex items-center justify-center gap-2 border border-primary/40 text-foreground font-medium px-7 py-4 rounded-full hover:bg-primary/10 transition-all"
@@ -128,6 +128,8 @@ export const Hero = () => {
           </div>
         </div>
       </div>
+
+      <BookingChoiceDialog open={bookOpen} onOpenChange={setBookOpen} />
     </section>
   );
 };

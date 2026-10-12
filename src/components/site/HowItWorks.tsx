@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Calendar, MessageCircle, Sparkles, Wand2 } from "lucide-react";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 
 const copy = {
   pt: {
@@ -44,7 +45,7 @@ const copy = {
 export const HowItWorks = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang);
+  const [bookOpen, setBookOpen] = useState(false);
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden bg-secondary text-secondary-foreground">
@@ -75,15 +76,16 @@ export const HowItWorks = () => {
 
         <div className="mt-16 text-center reveal">
           <p className="text-secondary-foreground/70">{t.footer}</p>
-          <a
-            href={whatsappLink}
-            target="_blank" rel="noreferrer"
+          <button
+            onClick={() => setBookOpen(true)}
             className="mt-6 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-6 py-3.5 rounded-full shadow-gold hover:shadow-gold-strong hover:-translate-y-0.5 transition-all"
           >
             <MessageCircle size={18} /> {t.cta}
-          </a>
+          </button>
         </div>
       </div>
+
+      <BookingChoiceDialog open={bookOpen} onOpenChange={setBookOpen} />
     </section>
   );
 };

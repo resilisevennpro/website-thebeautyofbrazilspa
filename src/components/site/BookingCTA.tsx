@@ -10,7 +10,8 @@ const copy = {
     titleGold: "pele?",
     body: "Clique abaixo para falar com a gente no WhatsApp, ou ligue para (954) 405-5414 para marcar seu horário personalizado.",
     callTitle: "Ligue ou Envie Mensagem",
-    cta: "Agendar Meu Horário",
+    cta: "Agendar no WhatsApp",
+    or: "ou",
   },
   en: {
     eyebrow: "Let's talk",
@@ -18,7 +19,8 @@ const copy = {
     titleGold: "skin?",
     body: "Click below to message us on WhatsApp, or call us at (954) 405-5414 to schedule your custom session.",
     callTitle: "Call or Text",
-    cta: "Book Your Appointment",
+    cta: "Book on WhatsApp",
+    or: "or",
   },
   es: {
     eyebrow: "Hablemos",
@@ -26,7 +28,8 @@ const copy = {
     titleGold: "piel?",
     body: "Haga clic abajo para escribirnos por WhatsApp, o llámenos al (954) 405-5414 para programar su sesión personalizada.",
     callTitle: "Llame o Envíe un Mensaje",
-    cta: "Reserve Su Cita",
+    cta: "Reservar por WhatsApp",
+    or: "o",
   },
 };
 
@@ -54,28 +57,32 @@ export const BookingCTA = () => {
         </div>
 
         <div className="mt-14 max-w-md mx-auto reveal">
-          <a
-            href={whatsappLink}
-            target="_blank" rel="noreferrer"
-            className="glass-card group p-8 flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-gold transition-all"
-          >
+          <div className="glass-card p-8 flex flex-col items-center text-center">
             <div className="w-14 h-14 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366]">
               <MessageCircle size={26} />
             </div>
             <h3 className="mt-5 text-2xl font-display">{t.callTitle}</h3>
             <p className="mt-2 text-muted-foreground text-sm">(954) 405-5414</p>
-            <span className="mt-6 inline-flex items-center gap-2 bg-[#25D366] text-white font-medium px-5 py-3 rounded-full group-hover:gap-3 transition-all">
-              <MessageCircle size={18} /> {t.cta}
-            </span>
-          </a>
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">{onlineCopy.question}</p>
+
+            <p className="mt-7 text-sm text-muted-foreground">{onlineCopy.question}</p>
             <a
               href={ONLINE_BOOKING_URL}
               target="_blank" rel="noreferrer"
-              className="mt-3 inline-flex items-center gap-2 border border-secondary/40 text-secondary px-5 py-2.5 rounded-full font-medium hover:bg-secondary/10 transition-all"
+              className="mt-3 w-full inline-flex items-center justify-center gap-2 bg-emerald-600 text-white font-medium px-5 py-3 rounded-full shadow-luxe hover:bg-emerald-500 transition-all"
             >
               {onlineCopy.button}
+            </a>
+
+            <div className="mt-6 w-full flex items-center gap-3 text-xs text-muted-foreground before:h-px before:flex-1 before:bg-border after:h-px after:flex-1 after:bg-border">
+              {t.or}
+            </div>
+
+            <a
+              href={whatsappLink}
+              target="_blank" rel="noreferrer"
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-5 py-3 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
+            >
+              <MessageCircle size={18} /> {t.cta}
             </a>
           </div>
         </div>

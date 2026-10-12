@@ -3,6 +3,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import { buildWhatsAppLink, type MessageCategory } from "@/lib/whatsapp";
 import { ONLINE_BOOKING_URL, useOnlineBookingCopy } from "@/lib/booking";
 import { useLanguage, type Lang } from "@/lib/language";
@@ -127,11 +128,13 @@ const copy = {
     bodyTitle: "Body Contour Treatments",
     cta: "Agendar",
     details: "Ver detalhes",
-    ctaFinal: "Não sabe qual tratamento é ideal para você?",
+    primaryLead: "Pronta para agendar sua sessão?",
+    ctaFinal: "Prefere agendar pelo WhatsApp?",
     ctaFinalBtn: "Fale com a gente no WhatsApp",
     firstTimeEyebrow: "Primeira vez aqui?",
     firstTimeTitle: "Como funciona sua primeira visita",
     modalCta: "Agendar no WhatsApp",
+    chooseTitle: "Como você prefere agendar?",
   },
   en: {
     eyebrow: "Our Treatments",
@@ -142,11 +145,13 @@ const copy = {
     bodyTitle: "Body Contour Treatments",
     cta: "Book now",
     details: "See details",
-    ctaFinal: "Not sure which treatment is right for you?",
+    primaryLead: "Ready to book your session?",
+    ctaFinal: "Prefer to book on WhatsApp?",
     ctaFinalBtn: "Talk to us on WhatsApp",
     firstTimeEyebrow: "First time here?",
     firstTimeTitle: "How your first visit works",
     modalCta: "Book on WhatsApp",
+    chooseTitle: "How would you like to book?",
   },
   es: {
     eyebrow: "Nuestros Tratamientos",
@@ -157,11 +162,13 @@ const copy = {
     bodyTitle: "Body Contour Treatments",
     cta: "Reservar",
     details: "Ver detalles",
-    ctaFinal: "¿No sabe qué tratamiento es ideal para usted?",
+    primaryLead: "¿Lista para reservar su sesión?",
+    ctaFinal: "¿Prefiere reservar por WhatsApp?",
     ctaFinalBtn: "Hable con nosotros por WhatsApp",
     firstTimeEyebrow: "¿Es su primera vez aquí?",
     firstTimeTitle: "Cómo funciona su primera visita",
     modalCta: "Reservar por WhatsApp",
+    chooseTitle: "¿Cómo prefiere reservar?",
   },
 };
 
@@ -171,10 +178,9 @@ const Services = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
   const onlineCopy = useOnlineBookingCopy();
-  const skincareWhatsappLink = buildWhatsAppLink(lang, "skincare");
-  const bodyContourWhatsappLink = buildWhatsAppLink(lang, "body-contour");
   const generalWhatsappLink = buildWhatsAppLink(lang, "general");
   const [selected, setSelected] = useState<Treatment | null>(null);
+  const [bookingChoice, setBookingChoice] = useState<Treatment | null>(null);
 
   return (
     <main className="relative">
@@ -219,9 +225,9 @@ const Services = () => {
                   <h3 className="mt-3 text-lg font-display">{s.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                   <div className="mt-4 flex items-center gap-3">
-                    <a href={skincareWhatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground text-sm font-medium px-4 py-2 rounded-full shadow-gold hover:shadow-gold-strong hover:gap-3 transition-all">
+                    <button onClick={() => setBookingChoice(s)} className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground text-sm font-medium px-4 py-2 rounded-full shadow-gold hover:shadow-gold-strong hover:gap-3 transition-all">
                       {t.cta} <ArrowRight size={14} />
-                    </a>
+                    </button>
                     <button
                       onClick={() => setSelected(s)}
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-primary transition-colors"
@@ -258,9 +264,9 @@ const Services = () => {
                   <h3 className="mt-3 text-lg font-display text-secondary-foreground">{s.title}</h3>
                   <p className="mt-2 text-sm text-secondary-foreground/70 leading-relaxed">{s.desc}</p>
                   <div className="mt-4 flex items-center gap-3">
-                    <a href={bodyContourWhatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground text-sm font-medium px-4 py-2 rounded-full shadow-gold hover:shadow-gold-strong hover:gap-3 transition-all">
+                    <button onClick={() => setBookingChoice(s)} className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground text-sm font-medium px-4 py-2 rounded-full shadow-gold hover:shadow-gold-strong hover:gap-3 transition-all">
                       {t.cta} <ArrowRight size={14} />
-                    </a>
+                    </button>
                     <button
                       onClick={() => setSelected(s)}
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary-foreground/80 hover:text-primary transition-colors"
@@ -299,22 +305,22 @@ const Services = () => {
           </div>
 
           <div className="mt-14 text-center reveal">
-            <p className="text-secondary-foreground/70">{t.ctaFinal}</p>
+            <p className="text-secondary-foreground/70">{t.primaryLead}</p>
             <a
-              href={generalWhatsappLink}
+              href={ONLINE_BOOKING_URL}
               target="_blank" rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-7 py-3.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
+              className="mt-5 inline-flex items-center gap-2 bg-emerald-600 text-white font-medium px-7 py-3.5 rounded-full shadow-luxe hover:bg-emerald-500 transition-all"
             >
-              <MessageCircle size={18} /> {t.ctaFinalBtn}
+              {onlineCopy.button}
             </a>
             <div className="mt-8">
-              <p className="text-sm text-secondary-foreground/70">{onlineCopy.question}</p>
+              <p className="text-sm text-secondary-foreground/70">{t.ctaFinal}</p>
               <a
-                href={ONLINE_BOOKING_URL}
+                href={generalWhatsappLink}
                 target="_blank" rel="noreferrer"
                 className="mt-3 inline-flex items-center gap-2 border border-primary/40 text-primary px-5 py-2.5 rounded-full font-medium hover:bg-primary/10 transition-all"
               >
-                {onlineCopy.button}
+                <MessageCircle size={16} /> {t.ctaFinalBtn}
               </a>
             </div>
           </div>
@@ -340,23 +346,29 @@ const Services = () => {
               </DialogHeader>
               <p className="text-sm text-muted-foreground leading-relaxed">{selected.fullDesc}</p>
               <a
-                href={buildWhatsAppLink(lang, selected.category)}
-                target="_blank" rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-6 py-3 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
-              >
-                <MessageCircle size={16} /> {t.modalCta}
-              </a>
-              <a
                 href={ONLINE_BOOKING_URL}
                 target="_blank" rel="noreferrer"
-                className="text-center text-sm font-medium text-secondary hover:text-primary transition-colors underline underline-offset-4"
+                className="inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-medium px-6 py-3 rounded-full shadow-luxe hover:bg-secondary/90 transition-all"
               >
                 {onlineCopy.button}
+              </a>
+              <a
+                href={buildWhatsAppLink(lang, selected.category)}
+                target="_blank" rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 border border-primary/40 text-primary font-medium px-6 py-3 rounded-full hover:bg-primary/10 transition-all"
+              >
+                <MessageCircle size={16} /> {t.modalCta}
               </a>
             </>
           )}
         </DialogContent>
       </Dialog>
+
+      <BookingChoiceDialog
+        open={!!bookingChoice}
+        onOpenChange={(open) => !open && setBookingChoice(null)}
+        category={bookingChoice?.category}
+      />
     </main>
   );
 };

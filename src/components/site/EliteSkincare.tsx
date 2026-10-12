@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Sun, Sparkles } from "lucide-react";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import g1 from "@/assets/imagens/gallery-1.jpg";
 import g2 from "@/assets/imagens/gallery-2.jpg";
 import g3 from "@/assets/imagens/gallery-3.jpg";
@@ -72,7 +73,7 @@ const copy = {
 export const EliteSkincare = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang, "skincare");
+  const [bookOpen, setBookOpen] = useState(false);
 
   return (
     <section id="skincare" className="pt-12 md:pt-16 pb-24 md:pb-32 relative overflow-hidden">
@@ -99,13 +100,12 @@ export const EliteSkincare = () => {
               ))}
             </div>
 
-            <a
-              href={whatsappLink}
-              target="_blank" rel="noreferrer"
+            <button
+              onClick={() => setBookOpen(true)}
               className="mt-8 inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-6 py-3 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
             >
               <Sun size={16} /> {t.cta}
-            </a>
+            </button>
           </div>
 
           <div className="lg:col-span-7 reveal">
@@ -134,6 +134,8 @@ export const EliteSkincare = () => {
           </div>
         </div>
       </div>
+
+      <BookingChoiceDialog open={bookOpen} onOpenChange={setBookOpen} category="skincare" />
     </section>
   );
 };

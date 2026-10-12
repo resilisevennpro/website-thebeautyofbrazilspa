@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Gem } from "lucide-react";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/language";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import r1 from "@/assets/imagens/service-body-contour-sculpt.jpg";
 import r2 from "@/assets/imagens/service-firming-rf.jpeg";
 
@@ -64,7 +65,7 @@ const copy = {
 export const BodyContour = () => {
   const { lang } = useLanguage();
   const t = copy[lang];
-  const whatsappLink = buildWhatsAppLink(lang, "body-contour");
+  const [bookOpen, setBookOpen] = useState(false);
 
   return (
     <section id="contour" className="py-24 md:py-32 relative overflow-hidden bg-gradient-cream">
@@ -132,17 +133,18 @@ export const BodyContour = () => {
               ))}
             </ul>
 
-            <a
-              href={whatsappLink}
-              target="_blank" rel="noreferrer"
+            <button
+              onClick={() => setBookOpen(true)}
               className="mt-9 inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full shadow-luxe hover:-translate-y-0.5 transition-all font-medium"
             >
               <Gem size={16} className="text-primary" />
               {t.cta}
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <BookingChoiceDialog open={bookOpen} onOpenChange={setBookOpen} category="body-contour" />
     </section>
   );
 };

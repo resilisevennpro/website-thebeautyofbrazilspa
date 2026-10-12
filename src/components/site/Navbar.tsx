@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { useLanguage, type Lang } from "@/lib/language";
-import { ONLINE_BOOKING_URL, useOnlineBookingCopy } from "@/lib/booking";
+import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import logo from "@/assets/imagens/logo.png";
 
 const links: Record<Lang, { href: string; label: string }[]> = {
@@ -64,15 +63,14 @@ const LanguageToggle = ({ compact = false }: { compact?: boolean }) => {
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [bookOpen, setBookOpen] = useState(false);
   const { lang } = useLanguage();
-  const whatsappLink = buildWhatsAppLink(lang);
-  const onlineCopy = useOnlineBookingCopy();
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-secondary/95 backdrop-blur-xl border-b border-primary/20 py-3 shadow-card-luxe">
       <nav className="container flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-display text-xl md:text-2xl tracking-wide text-secondary-foreground">
-          <img src={logo} alt="The Beauty of Brazil" className="w-9 h-9 rounded-full" />
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 min-w-0 shrink-0 font-display text-base sm:text-xl md:text-2xl tracking-wide text-secondary-foreground whitespace-nowrap">
+          <img src={logo} alt="The Beauty of Brazil" className="w-7 h-7 sm:w-9 sm:h-9 rounded-full shrink-0" />
           The Beauty of <span className="gold-text font-semibold">Brazil</span>
         </Link>
         <ul className="hidden md:flex items-center gap-8 text-sm text-secondary-foreground/80">
@@ -89,13 +87,12 @@ export const Navbar = () => {
         </ul>
         <div className="hidden md:flex items-center gap-3">
           <LanguageToggle />
-          <a
-            href={whatsappLink}
-            target="_blank" rel="noreferrer"
+          <button
+            onClick={() => setBookOpen(true)}
             className="shimmer inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-gold hover:shadow-gold-strong transition-all"
           >
             {bookLabel[lang]}
-          </a>
+          </button>
         </div>
         <div className="flex items-center gap-3 md:hidden">
           <LanguageToggle compact />
@@ -115,14 +112,16 @@ export const Navbar = () => {
               {l.label}
             </Link>
           ))}
-          <a href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center">
+          <button
+            onClick={() => { setOpen(false); setBookOpen(true); }}
+            className="bg-gradient-gold text-primary-foreground font-medium px-5 py-2.5 rounded-full text-center"
+          >
             {bookLabel[lang]}
-          </a>
-          <a href={ONLINE_BOOKING_URL} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="border border-primary/40 text-secondary-foreground font-medium px-5 py-2.5 rounded-full text-center">
-            {onlineCopy.button}
-          </a>
+          </button>
         </div>
       )}
+
+      <BookingChoiceDialog open={bookOpen} onOpenChange={setBookOpen} />
     </header>
   );
 };
