@@ -68,8 +68,8 @@ export const BeforeAfter = () => {
         </div>
 
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {treatments[lang].map((tr) => (
-            <figure key={tr.label} className="reveal luxe-card border border-secondary/30 p-3 group">
+          {treatments[lang].map((tr, i) => (
+            <figure key={i} className="reveal luxe-card border border-secondary/30 p-3 group">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-muted">
                 <img
                   src={tr.img}

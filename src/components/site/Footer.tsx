@@ -32,7 +32,7 @@ const copy = {
     rights: "All rights reserved",
   },
   es: {
-    tagline: "Aesthetics SPA en Pembroke Pines, FL. Tratamientos de élite para la piel y el cuerpo con un toque brasileño.",
+    tagline: "Aesthetics SPA en Pembroke Pines, FL. Tratamientos Exclusivos para el Cuidado de la Piel.",
     navTitle: "Navegación",
     links: [
       { href: "#servicos", label: "Servicios" },

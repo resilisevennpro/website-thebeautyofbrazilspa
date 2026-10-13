@@ -4,10 +4,10 @@ import { useLanguage } from "@/lib/language";
 
 const services = {
   pt: [
-    { icon: Flame, title: "Firming Radiofrequency", desc: "Calor de RF avançado e drenagem a vácuo para reduzir celulite e firmar a pele instantaneamente, sem tempo de recuperação." },
-    { icon: Zap, title: "Body Contour Sculpt", desc: "Um serviço 3 em 1 com ativação linfática, cavitação e radiofrequência para reduzir gordura e contornar o corpo." },
-    { icon: SparklesIcon, title: "Signature Glow Facial", desc: "Nosso facial de luxo limpa profundamente, esfolia e usa tecnologia avançada para iluminar a pele na hora." },
-    { icon: Sun, title: "Anti-Aging Facial", desc: "Tecnologia avançada para estimular colágeno, firmar a pele e suavizar rugas, revelando uma aparência jovial." },
+    { icon: Flame, title: "Radiofrequência Firmadora", desc: "Calor de RF avançado e drenagem a vácuo para reduzir celulite e firmar a pele instantaneamente, sem tempo de recuperação." },
+    { icon: Zap, title: "Escultura e Contorno Corporal", desc: "Um serviço 3 em 1 com ativação linfática, cavitação e radiofrequência para reduzir gordura e contornar o corpo." },
+    { icon: SparklesIcon, title: "Facial Iluminador Exclusivo", desc: "Nosso facial de luxo limpa profundamente, esfolia e usa tecnologia avançada para iluminar a pele na hora." },
+    { icon: Sun, title: "Facial Antienvelhecimento", desc: "Tecnologia avançada para estimular colágeno, firmar a pele e suavizar rugas, revelando uma aparência jovial." },
   ],
   en: [
     { icon: Flame, title: "Firming Radiofrequency", desc: "Advanced RF heat and vacuum drainage to reduce cellulite and instantly tighten skin with zero downtime." },
@@ -16,10 +16,10 @@ const services = {
     { icon: Sun, title: "Anti-Aging Facial", desc: "Advanced technology to boost collagen, tighten skin, and smooth wrinkles for a youthful complexion." },
   ],
   es: [
-    { icon: Flame, title: "Firming Radiofrequency", desc: "Calor de radiofrecuencia avanzada y drenaje al vacío para reducir la celulitis y firmar la piel al instante, sin tiempo de recuperación." },
-    { icon: Zap, title: "Body Contour Sculpt", desc: "Un servicio 3 en 1 con activación linfática, cavitación y radiofrecuencia para reducir grasa y contornear el cuerpo." },
-    { icon: SparklesIcon, title: "Signature Glow Facial", desc: "Nuestro facial de lujo limpia en profundidad, exfolia y usa tecnología avanzada para iluminar la piel al instante." },
-    { icon: Sun, title: "Anti-Aging Facial", desc: "Tecnología avanzada para estimular el colágeno, firmar la piel y suavizar arrugas, revelando una apariencia juvenil." },
+    { icon: Flame, title: "Radiofrecuencia Reafirmante", desc: "Calor de radiofrecuencia avanzada y drenaje al vacío para reducir la celulitis y firmar la piel al instante, sin tiempo de recuperación." },
+    { icon: Zap, title: "Escultura y Contorno Corporal", desc: "Un servicio 3 en 1 con activación linfática, cavitación y radiofrecuencia para reducir grasa y contornear el cuerpo." },
+    { icon: SparklesIcon, title: "Facial Iluminador Exclusivo", desc: "Nuestro facial de lujo limpia en profundidad, exfolia y usa tecnología avanzada para iluminar la piel al instante." },
+    { icon: Sun, title: "Facial Antiedad", desc: "Tecnología avanzada para estimular el colágeno, firmar la piel y suavizar arrugas, revelando una apariencia juvenil." },
   ],
 };
 
@@ -68,7 +68,7 @@ export const Services = () => {
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services[lang].map((s, i) => (
             <div
-              key={s.title}
+              key={i}
               className="reveal group p-7 rounded-2xl bg-secondary text-secondary-foreground border border-primary/20 shadow-luxe hover:-translate-y-2 hover:shadow-gold transition-all duration-500"
               style={{ transitionDelay: `${i * 80}ms` }}
             >

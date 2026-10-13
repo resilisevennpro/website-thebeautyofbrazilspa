@@ -24,7 +24,7 @@ const copy = {
   },
   es: {
     eyebrow: "Hablemos",
-    title1: "¿Lista para transformar su",
+    title1: "¿Listos para transformar su",
     titleGold: "piel?",
     body: "Haga clic abajo para escribirnos por WhatsApp, o llámenos al (954) 405-5414 para programar su sesión personalizada.",
     callTitle: "Llame o Envíe un Mensaje",

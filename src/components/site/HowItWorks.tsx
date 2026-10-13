@@ -37,7 +37,7 @@ const copy = {
       { n: "02", icon: Wand2, title: "Consulta personalizada", desc: "Christiane evalúa su piel y sus objetivos para recomendarle el tratamiento ideal para usted." },
       { n: "03", icon: Sparkles, title: "Su brillo, a su medida", desc: "Tratamientos no invasivos y de alto rendimiento, con resultados visibles y radiantes." },
     ],
-    footer: "¿Lista para transformar su piel? Llámenos o escríbanos para programar su sesión personalizada.",
+    footer: "¿Listos para transformar su piel? Llámenos o escríbanos para programar su sesión personalizada.",
     cta: "Reservar mi cita",
   },
 };

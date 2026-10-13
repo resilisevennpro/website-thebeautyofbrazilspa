@@ -10,7 +10,7 @@ import g4 from "@/assets/imagens/gallery-4.jpg";
 const gallery = {
   pt: [
     { src: g2, label: "Signature Glow Facial", caption: "Limpeza profunda e radiância", span: "md:col-span-2 md:row-span-2 aspect-[4/5]" },
-    { src: g1, label: "Elite Skincare", caption: "Faciais clínicos", span: "aspect-square" },
+    { src: g1, label: "Cuidado da Pele", caption: "Faciais clínicos", span: "aspect-square" },
     { src: g4, label: "Nano Infusion", caption: "Tecnologia de nano-agulhamento", span: "aspect-[4/5]" },
     { src: g3, label: "Diamond Radiance", caption: "Esfoliação com diamante", span: "aspect-[4/5]" },
   ],
@@ -22,7 +22,7 @@ const gallery = {
   ],
   es: [
     { src: g2, label: "Signature Glow Facial", caption: "Limpieza profunda y radiancia", span: "md:col-span-2 md:row-span-2 aspect-[4/5]" },
-    { src: g1, label: "Elite Skincare", caption: "Faciales de nivel clínico", span: "aspect-square" },
+    { src: g1, label: "Cuidado de la Piel", caption: "Faciales de nivel clínico", span: "aspect-square" },
     { src: g4, label: "Nano Infusion", caption: "Tecnología de nano-agujas", span: "aspect-[4/5]" },
     { src: g3, label: "Diamond Radiance", caption: "Exfoliación con diamante", span: "aspect-[4/5]" },
   ],
@@ -56,7 +56,7 @@ const copy = {
     cta: "Book my facial",
   },
   es: {
-    eyebrow: "Tratamientos Elite de Skincare",
+    eyebrow: "Cuidado de la Piel de Elite",
     title1: "Revele su",
     titleGold: "mejor versión",
     title3: "de la piel",
@@ -92,8 +92,8 @@ export const EliteSkincare = () => {
             <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">{t.body}</p>
 
             <div className="mt-8 grid grid-cols-3 gap-3">
-              {t.stats.map((s) => (
-                <div key={s.label} className="text-center px-3 py-4 rounded-2xl bg-secondary border border-primary/20 shadow-luxe">
+              {t.stats.map((s, i) => (
+                <div key={i} className="text-center px-3 py-4 rounded-2xl bg-secondary border border-primary/20 shadow-luxe">
                   <div className="text-2xl font-display gold-text">{s.v}</div>
                   <div className="text-[10px] text-secondary-foreground/70 uppercase tracking-wider mt-1">{s.label}</div>
                 </div>

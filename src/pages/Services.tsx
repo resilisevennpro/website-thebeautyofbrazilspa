@@ -124,8 +124,8 @@ const copy = {
     title1: "Todos os",
     titleGold: "serviços",
     body: "Do skincare clínico ao contorno corporal, cada tratamento é personalizado por Christiane para entregar resultados visíveis e uma experiência relaxante.",
-    skincareTitle: "Elite Skincare Treatments",
-    bodyTitle: "Body Contour Treatments",
+    skincareTitle: "Tratamentos Exclusivos de Cuidado da Pele",
+    bodyTitle: "Tratamentos Exclusivos de Contorno Corporal",
     cta: "Agendar",
     details: "Ver detalhes",
     primaryLead: "Pronta para agendar sua sessão?",
@@ -158,11 +158,11 @@ const copy = {
     title1: "Todos los",
     titleGold: "servicios",
     body: "Desde el skincare clínico hasta el contorno corporal, cada tratamiento es personalizado por Christiane para ofrecer resultados visibles y una experiencia relajante.",
-    skincareTitle: "Elite Skincare Treatments",
-    bodyTitle: "Body Contour Treatments",
+    skincareTitle: "Tratamientos Exclusivos para el Cuidado de la Piel",
+    bodyTitle: "Tratamientos Exclusivos de Contorno Corporal",
     cta: "Reservar",
     details: "Ver detalles",
-    primaryLead: "¿Lista para reservar su sesión?",
+    primaryLead: "¿Listos para reservar su sesión?",
     ctaFinal: "¿Prefiere reservar por WhatsApp?",
     ctaFinalBtn: "Hable con nosotros por WhatsApp",
     firstTimeEyebrow: "¿Es su primera vez aquí?",
@@ -209,7 +209,7 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {skincare[lang].map((s, i) => (
               <div
-                key={s.title}
+                key={i}
                 className="reveal glass-card group overflow-hidden hover:-translate-y-1 hover:shadow-gold transition-all duration-500"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
@@ -248,7 +248,7 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {bodyContour[lang].map((s, i) => (
               <div
-                key={s.title}
+                key={i}
                 className="reveal overflow-hidden rounded-2xl bg-secondary text-secondary-foreground border border-primary/20 shadow-luxe group hover:-translate-y-1 hover:shadow-gold transition-all duration-500"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >

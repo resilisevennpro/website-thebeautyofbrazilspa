@@ -4,7 +4,7 @@ import { useLanguage } from "@/lib/language";
 const items = {
   pt: [
     "Esteticista Licenciada",
-    "Elite Skincare",
+    "Cuidado da Pele",
     "Body Contour",
     "Pembroke Pines, FL",
     "Técnica Brasileira",
@@ -20,7 +20,7 @@ const items = {
   ],
   es: [
     "Esteticista Licenciada",
-    "Elite Skincare",
+    "Cuidado de la Piel",
     "Body Contour",
     "Pembroke Pines, FL",
     "Técnica Brasileña",
