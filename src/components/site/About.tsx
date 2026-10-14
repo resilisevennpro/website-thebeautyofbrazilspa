@@ -63,7 +63,7 @@ export const About = () => {
         <div className="reveal">
           <span className="font-accent text-primary text-xl">{t.eyebrow}</span>
           <h2 className="mt-2 text-4xl md:text-5xl font-display">
-            {t.name1} <span className="gold-text">{t.name2}</span>
+            {t.name1} <span className="text-secondary">{t.name2}</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">{t.p1}</p>
           <p className="mt-4 text-muted-foreground leading-relaxed">{t.p2}</p>
