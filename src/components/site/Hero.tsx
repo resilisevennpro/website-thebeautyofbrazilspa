@@ -83,7 +83,7 @@ export const Hero = () => {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <a
-              href="#servicos"
+              href="#services"
               className="inline-flex items-center justify-center gap-2 border border-primary/40 text-foreground font-medium px-7 py-4 rounded-full hover:bg-primary/10 transition-all"
             >
               {t.ctaSecondary}

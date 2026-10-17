@@ -55,7 +55,7 @@ export const Services = () => {
   const t = copy[lang];
 
   return (
-    <section id="servicos" className="pt-24 md:pt-32 pb-12 md:pb-16 relative">
+    <section id="services" className="pt-24 md:pt-32 pb-12 md:pb-16 relative">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto reveal">
           <span className="font-accent text-primary text-xl">{t.eyebrow}</span>

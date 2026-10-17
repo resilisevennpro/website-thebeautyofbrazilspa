@@ -16,7 +16,7 @@ export const usePageMeta = (copy: Record<Lang, MetaCopy>) => {
       document.head.appendChild(Object.assign(document.createElement("meta"), { name: "description" }));
     (meta as HTMLMetaElement).content = copy[lang].description;
 
-    const canonicalUrl = `https://thebeautyofbrazilspa.com${window.location.pathname}`;
+    const canonicalUrl = `https://beautyofbrazil.com${window.location.pathname}`;
     const canonical =
       document.querySelector('link[rel="canonical"]') ||
       document.head.appendChild(Object.assign(document.createElement("link"), { rel: "canonical" }));

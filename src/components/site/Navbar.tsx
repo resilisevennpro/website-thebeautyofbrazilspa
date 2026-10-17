@@ -8,23 +8,23 @@ import logo from "@/assets/imagens/logo.png";
 const links: Record<Lang, { href: string; label: string }[]> = {
   pt: [
     { href: "/", label: "Início" },
-    { href: "/#servicos", label: "Destaques" },
+    { href: "/#services", label: "Destaques" },
     { href: "/services", label: "Todos os Serviços" },
-    { href: "/#sobre", label: "Sobre" },
+    { href: "/#about", label: "Sobre" },
     { href: "/#contato", label: "Contato" },
   ],
   en: [
     { href: "/", label: "Home" },
-    { href: "/#servicos", label: "Highlights" },
+    { href: "/#services", label: "Highlights" },
     { href: "/services", label: "All Services" },
-    { href: "/#sobre", label: "About" },
+    { href: "/#about", label: "About" },
     { href: "/#contato", label: "Contact" },
   ],
   es: [
     { href: "/", label: "Inicio" },
-    { href: "/#servicos", label: "Destacados" },
+    { href: "/#services", label: "Destacados" },
     { href: "/services", label: "Todos los Servicios" },
-    { href: "/#sobre", label: "Sobre mí" },
+    { href: "/#about", label: "Sobre mí" },
     { href: "/#contato", label: "Contacto" },
   ],
 };

@@ -40,7 +40,7 @@ export const About = () => {
   const t = copy[lang];
 
   return (
-    <section id="sobre" className="py-24 md:py-32 relative">
+    <section id="about" className="py-24 md:py-32 relative">
       <div className="container grid lg:grid-cols-2 gap-14 items-center">
         <div className="relative reveal">
           <div className="absolute -inset-4 bg-gradient-radial-gold blur-2xl" />
