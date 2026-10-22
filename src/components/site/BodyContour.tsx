@@ -3,7 +3,7 @@ import { Gem } from "lucide-react";
 import { useLanguage } from "@/lib/language";
 import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import r1 from "@/assets/imagens/service-body-contour-sculpt.jpg";
-import r2 from "@/assets/imagens/service-firming-rf.jpeg";
+import r2 from "@/assets/imagens/service-firming-rf.webp";
 
 const copy = {
   pt: {
@@ -82,6 +82,7 @@ export const BodyContour = () => {
                 <img
                   src={r1}
                   alt="Body Contour Sculpt Treatment"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-card/90 backdrop-blur border border-border text-foreground">
@@ -95,6 +96,7 @@ export const BodyContour = () => {
                   <img
                     src={r2}
                     alt="Firming Radiofrequency Treatment"
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-gradient-gold text-primary-foreground">

@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Sun, Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/language";
 import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
-import g1 from "@/assets/imagens/gallery-1.jpg";
-import g2 from "@/assets/imagens/gallery-2.jpg";
-import g3 from "@/assets/imagens/gallery-3.jpg";
-import g4 from "@/assets/imagens/gallery-4.jpg";
+import g1 from "@/assets/imagens/gallery-1.webp";
+import g2 from "@/assets/imagens/gallery-2.webp";
+import g3 from "@/assets/imagens/gallery-3.webp";
+import g4 from "@/assets/imagens/gallery-4.webp";
 
 const gallery = {
   pt: [
@@ -118,6 +118,7 @@ export const EliteSkincare = () => {
                   <img
                     src={g.src}
                     alt={g.label}
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/0 to-transparent" />

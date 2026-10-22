@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useLanguage, type Lang } from "@/lib/language";
 import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
-import logo from "@/assets/imagens/logo.png";
+import logo from "@/assets/imagens/logo.webp";
 
 const links: Record<Lang, { href: string; label: string }[]> = {
   pt: [
@@ -70,7 +70,7 @@ export const Navbar = () => {
     <header className="fixed top-0 inset-x-0 z-50 bg-secondary/95 backdrop-blur-xl border-b border-primary/20 py-3 shadow-card-luxe">
       <nav className="container flex items-center justify-between">
         <Link to="/" className="flex items-center gap-1.5 sm:gap-2 min-w-0 shrink-0 font-display text-base sm:text-xl md:text-2xl tracking-wide text-secondary-foreground whitespace-nowrap">
-          <img src={logo} alt="The Beauty of Brazil" className="w-7 h-7 sm:w-9 sm:h-9 rounded-full shrink-0" />
+          <img src={logo} alt="The Beauty of Brazil" width={36} height={36} className="w-7 h-7 sm:w-9 sm:h-9 rounded-full shrink-0" />
           The Beauty of <span className="gold-text font-semibold">Brazil</span>
         </Link>
         <ul className="hidden md:flex items-center gap-8 text-sm text-secondary-foreground/80">

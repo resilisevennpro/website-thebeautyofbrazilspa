@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/language";
 import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
 import glow from "@/assets/imagens/service-signature-glow.webp";
 import sculpt from "@/assets/imagens/service-body-contour-sculpt.jpg";
-import firmingRf from "@/assets/imagens/service-firming-rf.jpeg";
+import firmingRf from "@/assets/imagens/service-firming-rf.webp";
 import antiAging from "@/assets/imagens/service-anti-aging.webp";
 
 const treatments = {
@@ -34,6 +35,7 @@ const copy = {
     titleGold: "resultados visíveis",
     body: "Tratamentos de alta performance feitos para transformar sua pele e remodelar sua silhueta, unindo tecnologias clínicas de skincare a soluções direcionadas de contorno corporal.",
     cta: "Clique aqui para agendar sua sessão →",
+    badge: "Atendemos Homens e Mulheres",
   },
   en: {
     eyebrow: "Advanced Aesthetic Services",
@@ -41,6 +43,7 @@ const copy = {
     titleGold: "visible results",
     body: "High-performance treatments designed to transform your skin and reshape your silhouette, pairing clinical skincare technologies with targeted body contouring solutions.",
     cta: "Click here to book your appointment →",
+    badge: "Men & Women Welcome",
   },
   es: {
     eyebrow: "Servicios Estéticos Avanzados",
@@ -48,6 +51,7 @@ const copy = {
     titleGold: "resultados visibles",
     body: "Tratamientos de alto rendimiento diseñados para transformar su piel y remodelar su silueta, combinando tecnologías clínicas de skincare con soluciones dirigidas de contorno corporal.",
     cta: "Haga clic aquí para reservar su cita →",
+    badge: "Atendemos a Hombres y Mujeres",
   },
 };
 
@@ -61,7 +65,12 @@ export const BeforeAfter = () => {
       <div className="container">
         <div className="text-center max-w-2xl mx-auto reveal">
           <span className="font-accent text-primary text-xl">{t.eyebrow}</span>
-          <h2 className="mt-2 text-4xl md:text-6xl font-display text-balance">
+          <div className="mt-3 flex justify-center">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] px-3.5 py-1.5 rounded-full bg-secondary text-secondary-foreground">
+              <Sparkles size={12} className="text-primary" /> {t.badge}
+            </span>
+          </div>
+          <h2 className="mt-4 text-4xl md:text-6xl font-display text-balance">
             {t.title1} <span className="gold-text italic font-accent">{t.titleGold}</span>
           </h2>
           <p className="mt-5 text-muted-foreground">{t.body}</p>
@@ -74,6 +83,7 @@ export const BeforeAfter = () => {
                 <img
                   src={tr.img}
                   alt={tr.label}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>

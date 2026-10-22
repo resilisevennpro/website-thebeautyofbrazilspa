@@ -1,13 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager: loaded after the page is interactive so it doesn't
+         compete with critical rendering resources on first paint (LCP). -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    new Date().getTime(),event:'gtm.js'});
+    function loadGtm(){var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}
+    if (d.readyState === 'complete') { loadGtm(); }
+    else { w.addEventListener('load', loadGtm); }
     })(window,document,'script','dataLayer','GTM-55NVK94B');</script>
     <!-- End Google Tag Manager -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Beauty of Brazil Aesthetics SPA | Pembroke Pines, FL</title>

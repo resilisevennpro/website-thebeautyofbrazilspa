@@ -1,6 +1,6 @@
 import { Instagram } from "lucide-react";
 import { useLanguage } from "@/lib/language";
-import secondaryImg from "@/assets/imagens/instagram-secondary.jpg";
+import secondaryImg from "@/assets/imagens/instagram-secondary.webp";
 
 const copy = {
   pt: {
@@ -54,6 +54,9 @@ export const InstagramFeed = () => {
               <img
                 src={secondaryImg}
                 alt="The Beauty of Brazil Spa"
+                loading="lazy"
+                width={700}
+                height={700}
                 className="w-full h-full object-cover"
               />
             </div>

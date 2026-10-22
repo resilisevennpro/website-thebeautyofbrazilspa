@@ -1,5 +1,5 @@
 import { useState } from "react";
-import heroImg from "@/assets/imagens/christiane-portrait-2.jpeg";
+import heroImg from "@/assets/imagens/christiane-portrait-2.webp";
 import { ArrowRight, Star, Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/language";
 import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
@@ -102,6 +102,9 @@ export const Hero = () => {
               <img
                 src={heroImg}
                 alt="Christiane Roberts, founder of The Beauty of Brazil SPA"
+                width={900}
+                height={1200}
+                fetchPriority="high"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />

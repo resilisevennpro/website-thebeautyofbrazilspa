@@ -1,5 +1,5 @@
-import portrait from "@/assets/imagens/christiane-portrait-2.jpeg";
-import portrait2 from "@/assets/imagens/about-portrait.jpg";
+import portrait from "@/assets/imagens/christiane-portrait-2.webp";
+import portrait2 from "@/assets/imagens/about-portrait.webp";
 import { useLanguage } from "@/lib/language";
 
 const copy = {
@@ -46,11 +46,11 @@ export const About = () => {
           <div className="absolute -inset-4 bg-gradient-radial-gold blur-2xl" />
           <div className="relative grid grid-cols-5 gap-4">
             <div className="col-span-3 rounded-2xl overflow-hidden border border-border shadow-luxe">
-              <img src={portrait} alt="Christiane Roberts, founder of The Beauty of Brazil SPA" className="w-full h-full object-cover" />
+              <img src={portrait} alt="Christiane Roberts, founder of The Beauty of Brazil SPA" width={900} height={1200} loading="lazy" className="w-full h-full object-cover" />
             </div>
             <div className="col-span-2 flex flex-col gap-4 pt-12">
               <div className="rounded-2xl overflow-hidden border border-border shadow-luxe aspect-[3/4]">
-                <img src={portrait2} alt="The Beauty of Brazil SPA skincare treatment" className="w-full h-full object-cover" />
+                <img src={portrait2} alt="The Beauty of Brazil SPA skincare treatment" width={700} height={933} loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div className="luxe-card p-5 text-center">
                 <div className="font-accent text-secondary text-sm leading-tight italic">{t.licenseTitle}</div>

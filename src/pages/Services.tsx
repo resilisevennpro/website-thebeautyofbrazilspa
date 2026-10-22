@@ -12,13 +12,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import glowImg from "@/assets/imagens/service-signature-glow.webp";
 import antiAgingImg from "@/assets/imagens/service-anti-aging.webp";
 import sculptImg from "@/assets/imagens/service-body-contour-sculpt.jpg";
-import firmingImg from "@/assets/imagens/service-firming-rf.jpeg";
-import diamondRadianceImg from "@/assets/imagens/service-diamond-radiance.png";
-import collagenRenewalImg from "@/assets/imagens/service-collagen-renewal.png";
-import clarifyingAcneImg from "@/assets/imagens/service-clarifying-acne.png";
-import microcurrentSculptImg from "@/assets/imagens/service-microcurrent-sculpt.png";
-import backDetoxImg from "@/assets/imagens/service-back-detox.png";
-import nanoInfusionImg from "@/assets/imagens/service-nano-infusion.png";
+import firmingImg from "@/assets/imagens/service-firming-rf.webp";
+import diamondRadianceImg from "@/assets/imagens/service-diamond-radiance.webp";
+import collagenRenewalImg from "@/assets/imagens/service-collagen-renewal.webp";
+import clarifyingAcneImg from "@/assets/imagens/service-clarifying-acne.webp";
+import microcurrentSculptImg from "@/assets/imagens/service-microcurrent-sculpt.webp";
+import backDetoxImg from "@/assets/imagens/service-back-detox.webp";
+import nanoInfusionImg from "@/assets/imagens/service-nano-infusion.webp";
 import contourDefineImg from "@/assets/imagens/service-contour-define.avif";
 import peelImg from "@/assets/imagens/chemical-peel-facial.webp";
 
@@ -124,12 +124,16 @@ const copy = {
     eyebrow: "Nossos Tratamentos",
     title1: "Todos os",
     titleGold: "serviços",
-    body: "Do skincare clínico ao contorno corporal, cada tratamento é personalizado por Christiane para entregar resultados visíveis e uma experiência relaxante.",
+    bodyPre: "Do skincare clínico ao contorno corporal, cada tratamento é personalizado por Christiane para entregar resultados visíveis e uma experiência relaxante, para ",
+    bodyBold1: "homens",
+    bodyMid: " e ",
+    bodyBold2: "mulheres",
+    bodyPost: ".",
     skincareTitle: "Tratamentos Exclusivos de Cuidado da Pele",
     bodyTitle: "Tratamentos Exclusivos de Contorno Corporal",
     cta: "Agendar",
     details: "Ver detalhes",
-    primaryLead: "Pronta para agendar sua sessão?",
+    primaryLead: "Pronto(a) para agendar sua sessão?",
     ctaFinal: "Prefere agendar pelo WhatsApp?",
     ctaFinalBtn: "Fale com a gente no WhatsApp",
     firstTimeEyebrow: "Primeira vez aqui?",
@@ -142,7 +146,11 @@ const copy = {
     eyebrow: "Our Treatments",
     title1: "All",
     titleGold: "services",
-    body: "From clinical skincare to body contouring, every treatment is personalized by Christiane to deliver visible results and a relaxing experience.",
+    bodyPre: "From clinical skincare to body contouring, every treatment is personalized by Christiane to deliver visible results and a relaxing experience, for ",
+    bodyBold1: "men",
+    bodyMid: " and ",
+    bodyBold2: "women",
+    bodyPost: " alike.",
     skincareTitle: "Elite Skincare Treatments",
     bodyTitle: "Body Contour Treatments",
     cta: "Book now",
@@ -160,12 +168,16 @@ const copy = {
     eyebrow: "Nuestros Tratamientos",
     title1: "Todos los",
     titleGold: "servicios",
-    body: "Desde el skincare clínico hasta el contorno corporal, cada tratamiento es personalizado por Christiane para ofrecer resultados visibles y una experiencia relajante.",
+    bodyPre: "Desde el skincare clínico hasta el contorno corporal, cada tratamiento es personalizado por Christiane para ofrecer resultados visibles y una experiencia relajante, para ",
+    bodyBold1: "hombres",
+    bodyMid: " y ",
+    bodyBold2: "mujeres",
+    bodyPost: " por igual.",
     skincareTitle: "Tratamientos Exclusivos para el Cuidado de la Piel",
     bodyTitle: "Tratamientos Exclusivos de Contorno Corporal",
     cta: "Reservar",
     details: "Ver detalles",
-    primaryLead: "¿Listos para reservar su sesión?",
+    primaryLead: "¿Listo(a) para reservar su sesión?",
     ctaFinal: "¿Prefiere reservar por WhatsApp?",
     ctaFinalBtn: "Hable con nosotros por WhatsApp",
     firstTimeEyebrow: "¿Es su primera vez aquí?",
@@ -203,7 +215,13 @@ const Services = () => {
           <h1 className="mt-3 font-display text-4xl md:text-6xl leading-[1.05] text-balance">
             {t.title1} <span className="gold-text italic font-accent">{t.titleGold}</span>
           </h1>
-          <p className="mt-5 text-muted-foreground leading-relaxed">{t.body}</p>
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            {t.bodyPre}
+            <strong className="font-semibold text-foreground">{t.bodyBold1}</strong>
+            {t.bodyMid}
+            <strong className="font-semibold text-foreground">{t.bodyBold2}</strong>
+            {t.bodyPost}
+          </p>
         </div>
       </section>
 
@@ -219,7 +237,7 @@ const Services = () => {
               >
                 {s.img && (
                   <div className="aspect-[16/10] overflow-hidden">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={s.img} alt={s.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                 )}
                 <div className="p-6">
@@ -258,7 +276,7 @@ const Services = () => {
               >
                 {s.img && (
                   <div className="aspect-[16/10] overflow-hidden">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={s.img} alt={s.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                 )}
                 <div className="p-6">
