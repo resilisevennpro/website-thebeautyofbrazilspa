@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Sun, Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/language";
 import { BookingChoiceDialog } from "@/components/site/BookingChoiceDialog";
-import g1 from "@/assets/imagens/gallery-1.webp";
+import g1 from "@/assets/imagens/gallery-men-facial.webp";
 import g2 from "@/assets/imagens/gallery-2.webp";
 import g3 from "@/assets/imagens/gallery-3.webp";
 import g4 from "@/assets/imagens/gallery-4.webp";
@@ -10,20 +10,20 @@ import g4 from "@/assets/imagens/gallery-4.webp";
 const gallery = {
   pt: [
     { src: g2, label: "Signature Glow Facial", caption: "Limpeza profunda e radiância", span: "md:col-span-2 md:row-span-2 aspect-[4/5]" },
-    { src: g1, label: "Cuidado da Pele", caption: "Faciais clínicos", span: "aspect-square" },
-    { src: g4, label: "Nano Infusion", caption: "Tecnologia de nano-agulhamento", span: "aspect-[4/5]" },
+    { src: g4, label: "Nano Infusion", caption: "Tecnologia de nano-agulhamento", span: "aspect-square" },
+    { src: g1, label: "Cuidado da Pele", caption: "Faciais clínicos", span: "aspect-[4/5]" },
     { src: g3, label: "Diamond Radiance", caption: "Esfoliação com diamante", span: "aspect-[4/5]" },
   ],
   en: [
     { src: g2, label: "Signature Glow Facial", caption: "Deep cleanse and radiance", span: "md:col-span-2 md:row-span-2 aspect-[4/5]" },
-    { src: g1, label: "Elite Skincare", caption: "Clinical-grade facials", span: "aspect-square" },
-    { src: g4, label: "Nano Infusion", caption: "Nano-needling technology", span: "aspect-[4/5]" },
+    { src: g4, label: "Nano Infusion", caption: "Nano-needling technology", span: "aspect-square" },
+    { src: g1, label: "Elite Skincare", caption: "Clinical-grade facials", span: "aspect-[4/5]" },
     { src: g3, label: "Diamond Radiance", caption: "Diamond exfoliation", span: "aspect-[4/5]" },
   ],
   es: [
     { src: g2, label: "Signature Glow Facial", caption: "Limpieza profunda y radiancia", span: "md:col-span-2 md:row-span-2 aspect-[4/5]" },
-    { src: g1, label: "Cuidado de la Piel", caption: "Faciales de nivel clínico", span: "aspect-square" },
-    { src: g4, label: "Nano Infusion", caption: "Tecnología de nano-agujas", span: "aspect-[4/5]" },
+    { src: g4, label: "Nano Infusion", caption: "Tecnología de nano-agujas", span: "aspect-square" },
+    { src: g1, label: "Cuidado de la Piel", caption: "Faciales de nivel clínico", span: "aspect-[4/5]" },
     { src: g3, label: "Diamond Radiance", caption: "Exfoliación con diamante", span: "aspect-[4/5]" },
   ],
 };

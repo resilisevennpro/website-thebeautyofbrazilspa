@@ -10,6 +10,7 @@ import { EliteSkincare } from "@/components/site/EliteSkincare";
 import { BodyContour } from "@/components/site/BodyContour";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { About } from "@/components/site/About";
+import { Testimonials } from "@/components/site/Testimonials";
 import { InstagramFeed } from "@/components/site/InstagramFeed";
 import { BookingCTA } from "@/components/site/BookingCTA";
 import { Footer } from "@/components/site/Footer";
@@ -45,6 +46,7 @@ const Index = () => {
       <BodyContour />
       <HowItWorks />
       <About />
+      <Testimonials />
       <InstagramFeed />
       <BookingCTA />
       <Footer />
